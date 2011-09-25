@@ -218,8 +218,8 @@
   $.fn.modal.Modal = Modal
 
   $.fn.modal.defaults = {
-    backdrop: false
-  , keyboard: false
+    backdrop: true
+  , keyboard: true
   , show: true
   }
 

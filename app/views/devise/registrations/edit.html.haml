@@ -1,15 +1,21 @@
 .page-header
-  %h1= resource.email
-
-.pull-right
-  = image_tag resource.gravatar_url(100)
-  %span.help-block
-    Your #{ link_to 'gravatar', 'http://gravatar.com' }.
+  %h1 Account Settings: #{ resource.full_name }
 
 %fieldset
 
   = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
     = f.error_messages :class => 'alert-message block-message error'
+
+    .clearfix
+      = f.label :first_name
+      .input
+        = f.text_field :first_name, :autofocus => true
+
+    .clearfix
+      = f.label :last_name
+      .input
+        = f.text_field :last_name
+
     .clearfix
       = f.label :email
       .input
@@ -44,11 +50,30 @@
 
 - content_for :sidebar do
   .page-header
-    %h1 Unhappy?
+    %h1 &nbsp;
 
   .clearfix
+    / = image_tag resource.gravatar_url(220)
+    / %span.help-block
+    /   Your #{ link_to 'gravatar', 'http://gravatar.com' }.
+
     %h5 Don't love us anymore? :(
-    = link_to "Delete my account!", registration_path(resource_name), :confirm => "Are you sure you don't love us anymore? This cannot be undone", :method => :delete, :class => 'btn danger'
+    = link_to "Delete my account!", '#', :class => 'btn danger', 'data-controls-modal' => 'delete-account-modal'
     %span.help-block
       %strong Note:
       We'll still love you.
+
+#delete-account-modal.modal.hide.fade.in
+  .modal-header
+    = link_to 'x', '#', :class => 'close'
+    %h3 Delete My Account
+
+  .modal-body
+    %p Are you sure you want to remove your account?
+    %p
+      %strong Note:
+      %span.label.important This cannot be undone
+
+  .modal-footer
+    = link_to 'Delete my account!', registration_path(resource_name), :method => :delete, :class => 'btn danger'
+
