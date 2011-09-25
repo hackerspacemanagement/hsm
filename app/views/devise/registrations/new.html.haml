@@ -1,0 +1,37 @@
+.page-header
+  %h1 Sign up
+
+%fieldset
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+    = f.error_messages :class => 'alert-message block-message error'
+
+    .clearfix
+      = f.label :email
+      %div.input
+        = f.email_field :email
+
+    .clearfix
+      = f.label :password
+      %div.input
+        = f.password_field :password
+
+    .clearfix
+      = f.label :password_confirmation
+      %div.input
+        = f.password_field :password_confirmation
+
+    .clearfix
+      = f.label :skill_summary
+      %div.input
+        = f.text_area :skill_summary, :class => 'xxlarge', :rows => '10'
+
+    .clearfix
+      %div.actions
+        = f.submit 'Sign up', :class => 'btn primary'
+        = link_to 'Cancel', root_url, :class => 'btn'
+
+- content_for :sidebar do
+  .page-header
+    %h1 &nbsp;
+
+  = render :partial => 'devise/shared/links'

@@ -1,0 +1,34 @@
+.page-header
+  %h1 Sign in
+
+%fieldset
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+    = f.error_messages :class => 'alert-message block-message error'
+
+    .clearfix
+      = f.label :email
+      %div.input
+        = f.email_field :email
+
+    .clearfix
+      = f.label :password
+      %div.input
+        = f.password_field :password
+
+    - if devise_mapping.rememberable?
+      .clearfix
+        = f.label :remember_me
+        %div.input
+          = f.check_box :remember_me
+
+      .clearfix
+        %div.actions
+          %clearfix
+            = f.submit "Sign in", :class => 'btn primary'
+            = link_to 'Cancel', root_url, :class => 'btn'
+
+- content_for :sidebar do
+  .page-header
+    %h1 &nbsp;
+
+  = render :partial => 'devise/shared/links'

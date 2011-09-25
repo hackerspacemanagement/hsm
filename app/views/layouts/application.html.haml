@@ -1,0 +1,42 @@
+!!! 5
+%html
+  %head
+    %title HeatSync Labs - Hackerspace Management
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  %body
+
+  .topbar
+    .topbar-inner
+      .container-fluid
+        = link_to 'HeatSync Labs - Hackerspace Management', root_url, :class => 'brand'
+
+        %ul.nav
+          / %li= link_to 'Home', root_url
+
+        %p.pull-right
+          - if user_signed_in?
+            Logged in as #{ link_to current_user.email, user_path(current_user) }
+            = link_to 'logout', destroy_user_session_path
+          - else
+            = link_to 'login', new_user_session_path
+
+  .container
+
+    .content
+      .row
+        .span16
+          - if flash[:notice]
+            / .alert-message.success{ :data_alert => 'alert' }= flash[:notice]
+          - if flash[:alert]
+            .alert-message.error.fade.in{ 'data-alert' => 'alert' }= flash[:alert]
+          / - if flash[:error]
+          / .alert-message.error.fade.in{ 'data-alert' => 'alert' }= flash[:error]
+
+        .span12
+          = yield
+
+        .span4
+          = yield :sidebar
