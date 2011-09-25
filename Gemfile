@@ -16,8 +16,9 @@ group :assets do
   gem 'uglifier'
 end
 
-group :production do#, :ci do
+group :production, :staging do#, :ci do
   gem 'pg'
+  gem 'thin'
 end
 
 group :development, :test do
@@ -25,7 +26,12 @@ group :development, :test do
   gem 'capybara'
   gem 'rspec-rails', '>= 2.0.1'
   gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'cover_me'
   gem 'wirble'
+end
+
+group :development do
+  gem 'heroku'
 end
 
 group :test do
