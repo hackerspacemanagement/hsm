@@ -7,26 +7,26 @@
 
     .clearfix
       = f.label :email
-      %div.input
+      .input
         = f.email_field :email
 
     .clearfix
       = f.label :password
-      %div.input
+      .input
         = f.password_field :password
 
     .clearfix
       = f.label :password_confirmation
-      %div.input
+      .input
         = f.password_field :password_confirmation
 
     .clearfix
       = f.label :skill_summary
-      %div.input
+      .input
         = f.text_area :skill_summary, :class => 'xxlarge', :rows => '10'
 
     .clearfix
-      %div.actions
+      .actions
         = f.submit 'Sign up', :class => 'btn primary'
         = link_to 'Cancel', root_url, :class => 'btn'
 

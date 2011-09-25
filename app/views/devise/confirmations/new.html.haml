@@ -7,11 +7,11 @@
 
     .clearfix
       = f.label :email
-      %div.input
+      .input
         = f.email_field :email
 
     .clearfix
-      %div.actions
+      .actions
         = f.submit 'Resend confirmation instructions', :class => 'btn primary'
         = link_to 'Cancel', root_url, :class => 'btn'
 

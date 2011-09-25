@@ -4,6 +4,15 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+
+  def full_name
+    "#{ first_name } #{ last_name }"
+  end
+
+  def gravatar_url size=80
+    hash = Digest::MD5.hexdigest(email.downcase.strip)
+    "http://www.gravatar.com/avatar/#{ hash }?s=#{ size }"
+  end
+
 end

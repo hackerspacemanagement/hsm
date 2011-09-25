@@ -1,25 +1,54 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+.page-header
+  %h1= resource.email
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+.pull-right
+  = image_tag resource.gravatar_url(100)
+  %span.help-block
+    Your #{ link_to 'gravatar', 'http://gravatar.com' }.
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+%fieldset
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password %></div>
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+    = f.error_messages :class => 'alert-message block-message error'
+    .clearfix
+      = f.label :email
+      .input
+        = f.email_field :email
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+    .clearfix
+      = f.label :password
+      .input
+        = f.password_field :password
+        %span.help-block
+          %strong Note:
+          Leave this blank if you don't want to change it.
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
+    .clearfix
+      = f.label :password_confirmation
+      .input
+        = f.password_field :password_confirmation
 
-  <div><%= f.submit "Update" %></div>
-<% end %>
+    .clearfix
+      = f.label :current_password
+      .input
+        = f.password_field :current_password
+        %span.help-block
+          %strong Note:
+          We need your current password to confirm your changes.
+        
+    .clearfix
+      .actions
+        %clearfix
+          = f.submit 'Update', :class => 'btn primary'
+          = link_to 'Cancel', root_url, :class => 'btn'
 
-<h3>Cancel my account</h3>
+- content_for :sidebar do
+  .page-header
+    %h1 Unhappy?
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
-
-<%= link_to "Back", :back %>
+  .clearfix
+    %h5 Don't love us anymore? :(
+    = link_to "Delete my account!", registration_path(resource_name), :confirm => "Are you sure you don't love us anymore? This cannot be undone", :method => :delete, :class => 'btn danger'
+    %span.help-block
+      %strong Note:
+      We'll still love you.

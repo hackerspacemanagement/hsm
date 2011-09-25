@@ -721,8 +721,7 @@ input[type=file]:focus, input[type=checkbox]:focus, select:focus {
   outline: 1px dotted #666;
 }
 
-form div.clearfix.error,
-div.field_with_errors form
+form div.clearfix.error
  {
   background: #fae5e3;
   padding: 10px 0;
