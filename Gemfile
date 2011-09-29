@@ -28,6 +28,7 @@ group :development, :test do
   gem 'rspec-rails', '>= 2.0.1'
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'cover_me'
+  gem 'faker'
   gem 'wirble'
 end
 
@@ -37,5 +38,6 @@ end
 
 group :test do
   gem 'factory_girl_rails'
+  # gem 'faker'
   gem 'launchy'
 end
