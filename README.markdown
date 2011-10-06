@@ -9,14 +9,14 @@ Prerequisites
 
 Production Environment
 ----------------------
-    $ git clone git@github.com:bowerman4875/hsm.git
+    $ git clone git@github.com:bowerman/hsm.git
     $ cd hsm
     $ bundle install
     $ rake db:seed
 
 Development / Test Environment
 ------------------------------
-    $ git clone git@github.com:bowerman4875/hsm.git
+    $ git clone git@github.com:bowerman/hsm.git
     $ cd hsm
     $ bundle install --without production staging ci
     $ rake db:seed
