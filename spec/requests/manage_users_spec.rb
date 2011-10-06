@@ -101,4 +101,34 @@ describe 'Managing Users' do
 
   end
 
+  describe 'deleting account' do
+
+    before do
+      @user = Factory.create :user, :email                 => 'user@test.com',
+                                    :password              => 'password',
+                                    :password_confirmation => 'password',
+                                    :confirmed_at          => Time.now
+
+      login_as @user
+    end
+
+    it 'has a link to remove account on the edit page' do
+      visit edit_user_registration_path(@user)
+
+      page.should have_css('a', :text => 'Delete my account')
+    end
+
+    it 'user can remove account', :js => true do
+      visit edit_user_registration_path(@user)
+      click_link 'Delete my account!'
+
+      page.should have_content('Are you sure you want to remove your account?')
+      within('#delete-account-modal') { click_link('Delete my account!') }
+
+      should_be_on root_path
+      page.should have_content('Bye! Your account was successfully cancelled. We hope to see you again soon.')
+    end
+
+  end
+
 end

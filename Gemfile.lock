@@ -58,6 +58,7 @@ GEM
       configatron
       hashie
     daemons (1.1.4)
+    database_cleaner (0.6.7)
     devise (1.4.7)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
@@ -206,6 +207,7 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 3.1.0)
   cover_me
+  database_cleaner
   devise
   dynamic_form
   factory_girl_rails

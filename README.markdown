@@ -30,6 +30,10 @@ To run the test suite:
 
     $ bundle exec rspec spec/
 
+To get code coverage (and run the test suite as well)
+
+    $ rake cover_me:all
+
 Deployment
 ----------
 
