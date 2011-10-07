@@ -34,11 +34,3 @@ To get code coverage (and run the test suite as well)
 
     $ rake cover_me:all
 
-Deployment
-----------
-
-*staging*
-
-The staging server is hosted by heroku
-
-    $ git push heroku # => deploy latest code
