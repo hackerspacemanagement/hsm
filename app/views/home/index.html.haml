@@ -11,5 +11,4 @@
     
   - if user_signed_in?
     %br/
-    %p #{ link_to "My Skills", {:url => { :action => "view_skills", :id => current_user.id } } }
-    %p #{ link_to "My Tools", {:url => { :controller => "tools', :action => "view_tools", :id => current_user.id } } }
+    %p #{ link_to "My Tools", :controller => "tools", :id => current_user.id }
