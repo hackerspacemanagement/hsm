@@ -10,4 +10,15 @@ class ToolsController < ApplicationController
             @Tools = Tool.all
         end
     end
+    
+    def new
+        @Tool = Tool.new
+    end
+    
+    def create
+        @Tool = Tool.new(params[:tool]);
+        @Tool.owner_id = current_user.id
+        @Tool.date_added = Time.now
+        @Tool.save
+    end
 end
