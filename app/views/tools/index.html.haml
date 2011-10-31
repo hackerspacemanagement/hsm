@@ -3,7 +3,11 @@
 
   %h1 HeatSync Labs
 
-  %h2 Tools
+  - if @username.length > 0
+    - h2 = @username + "'s Tools"
+  - else 
+    - h2 = "Tools"
+  %h2= h2
   %table
     %thead
       %td= "Name"
