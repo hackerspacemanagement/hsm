@@ -1,0 +1,8 @@
+ .hero-unit
+  .pull-right= image_tag 'logo.png'
+
+  %h1 HeatSync Labs
+
+  %p Tools
+
+    %p #{ link_to "My Tools", {:url => { :controller => "tools', :action => "view_tools", :id => current_user.id } } }
