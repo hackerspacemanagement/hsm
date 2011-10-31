@@ -14,12 +14,14 @@
   
   %table
     %thead
+      %td= "Type"
       %td= "Name"
       %td= "Owner"
       %td= "Description"
     %tbody
       - @Tools.each do |tool|
         %tr
+          %td= tool.type
           %td= tool.name
           %td= tool.owner_id
           %td= tool.description

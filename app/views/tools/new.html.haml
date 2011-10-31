@@ -4,8 +4,14 @@
   %h1 HeatSync Labs
 
   = form_for @Tool do |t| 
-    %p Name
-    = t.text_field :name
-    %p Description
-    = t.text_field :description
-    = t.submit
+    %p
+      = t.label "Name: "
+      = t.text_field :name
+    %p
+      = t.label "Type: "
+      = t.text_field :type
+    %p
+      = t.label "Description: "
+      = t.text_field :description
+      = t.submit
+    

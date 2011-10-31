@@ -12,6 +12,7 @@ class ToolsController < ApplicationController
     end
     
     def new
+        # Is this such a good idea? Why do I have to do this anyways?
         @Tool = Tool.new
     end
     
