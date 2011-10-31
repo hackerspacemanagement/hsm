@@ -60,3 +60,7 @@ tmp/*
 
 # vim artifacts
 **.swp
+
+# KDE artifacts
+.directory
+*.kate-swp
