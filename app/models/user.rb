@@ -20,4 +20,5 @@ class User < ActiveRecord::Base
   
   has_many :skills
   has_many :skill_levels
+  has_many :tools
 end

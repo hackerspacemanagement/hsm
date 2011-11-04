@@ -14,14 +14,17 @@
   
   %table
     %thead
-      %td= "Type"
-      %td= "Name"
-      %td= "Owner"
-      %td= "Description"
+      %td= sort_link "Type", :type
+      %td= sort_link "Name", :name
+      %td= sort_link "Owner", :user
+      %td= sort_link "Description", :description
     %tbody
       - @Tools.each do |tool|
         %tr
           %td= tool.type
           %td= tool.name
-          %td= tool.owner_id
+          - if !tool.user.nil?
+            %td= tool.user.full_name
+          - else
+            %td
           %td= tool.description
