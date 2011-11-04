@@ -16,7 +16,7 @@
     %thead
       %td= sort_link "Type", :type
       %td= sort_link "Name", :name
-      %td= sort_link "Owner", :user
+      %td= sort_link "Owner", :user_id
       %td= sort_link "Description", :description
     %tbody
       - @Tools.each do |tool|
