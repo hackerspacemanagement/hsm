@@ -8,9 +8,13 @@ class ToolsController < ApplicationController
   def new
     @tool = Tool.new
   end
+
+  def edit
+    @tool = Tool.find(params[:id])
+  end
   
   def create
-    @tool = Tool.new(params[:tool]);
+    @tool = Tool.new(params[:tool])
     @tool.user_id = current_user.id
     @tool.date_added = Time.now
     if @tool.save
@@ -18,7 +22,19 @@ class ToolsController < ApplicationController
       redirect_to tools_path
     else
       flash[:alert] = 'You broke something. :-('
-      redirect_to new_tool_path
+      redirect_to edit_tool_path(@tool)
     end
   end
+
+  def update
+    @tool = Tool.find(params[:id])
+    if @tool.update_attributes(params[:tool])
+      flash[:notice] = "Your changes have been saved, good sir or madam."
+      redirect_to tools_path
+    else
+      flash[:alert] = "Whoops, something bad happened!"
+      redirect_to edit_tool_path(@tool)
+    end
+  end
+
 end
