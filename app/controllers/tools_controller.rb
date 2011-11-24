@@ -18,7 +18,7 @@ class ToolsController < ApplicationController
       redirect_to tools_path
     else
       flash[:alert] = 'You broke something. :-('
-      redirect_to new_tool_path(@tool)
+      redirect_to new_tool_path
     end
   end
 end
