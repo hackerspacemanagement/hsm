@@ -26,8 +26,8 @@ group :development, :test do
   gem 'sqlite3'
   gem 'capybara'
   gem 'rspec-rails', '>= 2.0.1'
-  gem 'ruby-debug19', :require => 'ruby-debug'
-  gem 'cover_me'
+  gem 'ruby-debug19', :require => 'ruby-debug' if RUBY_VERSION >= "1.9"
+  gem 'cover_me' if RUBY_VERSION >= "1.9"
   gem 'faker'
   gem 'wirble'
 end
