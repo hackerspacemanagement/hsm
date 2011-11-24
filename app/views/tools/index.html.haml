@@ -3,12 +3,7 @@
 
   %h1 HeatSync Labs
 
-  - if @username.length > 0
-    - h2 = @username + "'s Tools"
-  - else 
-    - h2 = "Tools"
-  
-  %h2= h2
+  %h2= "Tools"
   
   %p= link_to "Add a tool", {:controller => "tools", :action => "new"}
   
@@ -19,7 +14,7 @@
       %td= sort_link "Owner", :user_id
       %td= sort_link "Description", :description
     %tbody
-      - @Tools.each do |tool|
+      - @tools.each do |tool|
         %tr
           %td= tool.type
           %td= tool.name
