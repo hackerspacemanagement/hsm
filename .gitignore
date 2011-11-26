@@ -52,14 +52,13 @@ tmp/*
 # Mac finder artifacts
 .DS_Store
 
-# Netbeans project directory
+# Editor swap files and stuff
 /nbproject/
-
-# Textmate project files
-/*.tmproj
-
-# vim artifacts
-**.swp
+*.tmproj
+*.swp
+*.swo
+.#*
+*~
 
 # KDE artifacts
 .directory
