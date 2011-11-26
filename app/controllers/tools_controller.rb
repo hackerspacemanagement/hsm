@@ -7,11 +7,13 @@ class ToolsController < ApplicationController
   
   def new
     @tool = Tool.new
+    # This violates DRY. -rr
     @categories = ToolCategory.all
   end
 
   def edit
     @tool = Tool.find(params[:id])  
+    # This violates DRY. -rr
     @categories = ToolCategory.all
   end
   
