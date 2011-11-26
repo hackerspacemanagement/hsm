@@ -4,7 +4,7 @@
     = t.text_field :name
   %p
     = t.label "Category: "
-    = t.text_field :category
+    = t.select :category, @categories
   %p
     = t.label "Description: "
     = t.text_field :description

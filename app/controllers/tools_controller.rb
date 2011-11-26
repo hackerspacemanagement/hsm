@@ -7,10 +7,12 @@ class ToolsController < ApplicationController
   
   def new
     @tool = Tool.new
+    @categories = ToolCategory.all
   end
 
   def edit
-    @tool = Tool.find(params[:id])
+    @tool = Tool.find(params[:id])  
+    @categories = ToolCategory.all
   end
   
   def create
