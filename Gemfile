@@ -8,6 +8,7 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem 'dynamic_form'
 gem 'rack-ssl-enforcer'
+gem "paperclip", "~> 2.4"
 
 # Gems used only for assets and not required
 # in production environments by default.
