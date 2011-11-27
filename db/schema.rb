@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20111126084057) do
 
   create_table "tool_categories", :force => true do |t|
     t.string   "name"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
