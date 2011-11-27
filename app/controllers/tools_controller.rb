@@ -8,13 +8,13 @@ class ToolsController < ApplicationController
   def new
     @tool = Tool.new
     # This violates DRY. -rr
-    @categories = ToolCategory.all
+    @categories = ToolCategory.all.collect {|p| [ p.name, p.id ] }
   end
 
   def edit
     @tool = Tool.find(params[:id])  
     # This violates DRY. -rr
-    @categories = ToolCategory.all
+    @categories = ToolCategory.all.collect {|p| [ p.name, p.id ] }
   end
   
   def create
