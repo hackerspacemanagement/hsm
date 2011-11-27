@@ -1,0 +1,12 @@
+.hero-unit
+  .pull-right= image_tag 'logo.png'
+
+  %h1 HeatSync Labs
+
+  %h2 Tool Completed
+
+  %p= c.name
+  %p= c.description
+  
+  %p= link_to "Add a tool category", {:controller => "tool_categories", :action => "index"}
+ 
