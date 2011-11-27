@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111126084057) do
+ActiveRecord::Schema.define(:version => 20111127061552) do
 
   create_table "tool_categories", :force => true do |t|
     t.string   "name"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 20111126084057) do
     t.date     "date_removed"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "category"
+    t.integer  "tool_category_id", :limit => 255
   end
 
   create_table "users", :force => true do |t|
