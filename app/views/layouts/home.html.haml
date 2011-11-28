@@ -22,7 +22,8 @@
               = link_to current_user.email, '#', :class => 'dropdown-toggle'
               %ul.dropdown-menu
                 %li= link_to 'Account Settings', edit_user_registration_path
-                %li= link_to_if @user.can_access_admin_panel, 'Administration', admin_index_path
+                -# XXX: This is commented out until admin_index_path is defined. Is this a todo? -rr
+                -# %li= link_to_if current_user.can_access_admin_panel?, 'Administration', admin_index_path
                 %li.divider
                 %li= link_to 'Logout', destroy_user_session_path
 
