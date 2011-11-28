@@ -9,6 +9,7 @@
   
   %table
     %thead
+      %td Picture
       %td= sort_link "Category", :category
       %td= sort_link "Name", :name
       %td= sort_link "Owner", :user_id
@@ -16,6 +17,7 @@
     %tbody
       - @tools.each do |tool|
         %tr
+          %td= image_tag tool.picture.url(:thumb)
           %td= tool.tool_category.name
           %td= tool.name
           - if !tool.user.nil?
