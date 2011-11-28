@@ -6,7 +6,12 @@ Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
-  config.mailer_sender = Settings.mail_from_address
+  # We check if the table exists since bootstrapping might not have the settings available yet.
+  if ActiveRecord::Base.connection.tables.include?('settings')
+      config.mailer_sender = Settings.mail_from_address
+  else
+      config.mailer_sender = 'hsm@localhost'
+  end
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
