@@ -57,7 +57,11 @@ ActiveRecord::Schema.define(:version => 20111128061201) do
     t.date     "date_removed"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "tool_category_id", :limit => 255
+    t.integer  "tool_category_id",     :limit => 255
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   create_table "users", :force => true do |t|
