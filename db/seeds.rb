@@ -9,7 +9,7 @@
 puts 'Setting up default user.'
 user = User.new :first_name            => 'Test',
                 :last_name             => 'User',
-                :email                 => 'user@test.com',
+                :email                 => 'user@example.com',
                 :password              => 'password',
                 :password_confirmation => 'password'
 
