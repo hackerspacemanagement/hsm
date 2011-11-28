@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
   private
 
   def matches_dynamic_perm_check?(method_id)
-    /^can_([a-zA-Z]\w*)\?#/.match(method_id.to_s)
+    /^can_([a-zA-Z]\w*)\?$/.match(method_id.to_s)
   end
 
   def matches_dynamic_role_check?(method_id)
