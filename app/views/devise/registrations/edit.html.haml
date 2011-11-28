@@ -17,6 +17,11 @@
         = f.text_field :last_name
 
     .clearfix
+      = f.label :role
+      .input
+        = f.label @user.role.name
+
+    .clearfix
       = f.label :email
       .input
         = f.email_field :email
