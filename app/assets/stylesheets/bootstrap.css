@@ -193,7 +193,7 @@ body {
   color: #404040;
 }
 .container {
-  width: 940px;
+  width: 1100px;
   margin-left: auto;
   margin-right: auto;
   zoom: 1;
@@ -1699,6 +1699,7 @@ a.menu:after, .dropdown-toggle:after {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
+  width: 1000px
 }
 .hero-unit h1 {
   margin-bottom: 0;
