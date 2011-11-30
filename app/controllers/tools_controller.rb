@@ -2,7 +2,14 @@ class ToolsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   
   def index
-    @tools = Tool.all
+    if params[:id]
+      @user = User.find(params[:id])
+      @tools = @user.tools
+      @user_tools = true
+    else
+      @tools = Tool.all
+      @user_tools = nil
+    end
   end
   
   def new
