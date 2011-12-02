@@ -47,17 +47,7 @@
           %strong Note:
           We need your current password to confirm your changes.
     
-    .clearfix
-      .actions
-        %clearfix
-          .btn
-            = link_to 'My Skills', root_url
-          .btn
-            = link_to 'My Tools', :controller => "/tools", :id => current_user.id
-          .btn
-            = link_to 'My Projects', root_url # :controller => "/projects", :id => current_user.id
-        
-    .clearfix
+   .clearfix
       .actions
         %clearfix
           = f.submit 'Update', :class => 'btn primary'
