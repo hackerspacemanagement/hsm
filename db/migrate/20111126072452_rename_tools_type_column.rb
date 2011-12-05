@@ -1,9 +1,5 @@
 class RenameToolsTypeColumn < ActiveRecord::Migration
-  def up
-    rename_column :tools, :type, :category
-  end
-
-  def down
+  def change
     rename_column :tools, :type, :category
   end
 end

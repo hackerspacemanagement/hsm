@@ -7,9 +7,9 @@ class Updatetoolcategoryids < ActiveRecord::Migration
   end
 
   def down
+    rename_column :tools, :tool_category_id, :category
     change_table :tools do |t|
       t.change :category, :string
     end
-    rename_column :tools, :tool_category_id, :category
   end
 end
