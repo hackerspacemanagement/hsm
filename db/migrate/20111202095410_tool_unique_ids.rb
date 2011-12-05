@@ -1,9 +1,5 @@
 class ToolUniqueIds < ActiveRecord::Migration
-  def up
+  def change
       add_column :tools, :serial_id, :string
-  end
-
-  def down
-      remove_column :tools, :serial_id
   end
 end
