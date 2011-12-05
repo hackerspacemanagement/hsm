@@ -1,4 +1,11 @@
 Hsm::Application.routes.draw do
+
+  get "administration/index"
+
+  get "administration/users"
+
+  get "administration/configuration"
+
   devise_for :users
 
   resource :home
