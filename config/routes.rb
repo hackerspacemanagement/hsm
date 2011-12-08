@@ -6,12 +6,6 @@ Hsm::Application.routes.draw do
     resources :users
   end
 
-  get "administration/index"
-
-  get "administration/users"
-
-  get "administration/configuration"
-
   devise_for :users
 
   resource :home

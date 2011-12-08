@@ -22,7 +22,7 @@
               = link_to current_user.email, '#', :class => 'dropdown-toggle'
               %ul.dropdown-menu
                 %li= link_to 'Account Settings', edit_user_registration_path
-                %li= link_to_if current_user.can_access_admin_panel?, 'Administration', administration_index_path
+                %li= link_to_if current_user.can_access_admin_panel?, 'Administration', admin_root_url
                 %li.divider
                 %li= link_to 'Logout', destroy_user_session_path
 
