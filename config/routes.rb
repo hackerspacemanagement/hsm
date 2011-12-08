@@ -6,6 +6,8 @@ Hsm::Application.routes.draw do
 
   get "administration/configuration"
 
+  get "administration/roles"
+
   devise_for :users
 
   resource :home

@@ -8,6 +8,10 @@ class AdministrationController < ApplicationController
     @users = User.all
   end
 
+  def roles
+    @roles = Role.all
+  end
+
   def configuration
     @config = Settings.all
   end
