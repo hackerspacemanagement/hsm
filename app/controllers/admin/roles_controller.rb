@@ -10,9 +10,11 @@ class Admin::RolesController < ApplicationController
   end
 
   def show
+    @role = Role.find(params[:id])
   end
 
   def edit
+    @role = Role.find(params[:id])
   end
 
   def update
