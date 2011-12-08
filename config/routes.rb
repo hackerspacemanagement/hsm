@@ -1,12 +1,14 @@
 Hsm::Application.routes.draw do
 
+  namespace :admin do
+    resources :roles
+  end
+
   get "administration/index"
 
   get "administration/users"
 
   get "administration/configuration"
-
-  get "administration/roles"
 
   devise_for :users
 
