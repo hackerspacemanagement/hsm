@@ -7,15 +7,18 @@
                 %th Name
                 %th Description
                 %th Members
+                %th Permissions
                 %th Actions
         %tbody
             - @roles.each do |r|
                 %tr
                     %td= r.name
                     %td= r.description
-                    %td r.users.length
+                    %td= r.users.length
                     %td
-                        .actions
-                            .btn
-                                -# TODO
-                                -# = link_to 'Edit', user_edit_path(u)
+                        %ul
+                            - r.permissions do |p|
+                                %li= p.name
+                    %td
+                        .btn
+                            = link_to 'Edit', {:controller => "roles", :action => "edit", :id => r.id}
