@@ -1,6 +1,7 @@
 Hsm::Application.routes.draw do
 
   namespace :admin do
+    root :to => 'home#admin'
     resources :roles
   end
 
