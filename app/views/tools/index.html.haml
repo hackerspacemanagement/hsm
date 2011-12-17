@@ -5,11 +5,11 @@
 
   - if !@user_tools
     %h2= "Tools"
-  - else 
+  - else
     %h2= @user.full_name + "'s Tools"
-  
+
   %p= link_to "Add a tool", {:controller => "tools", :action => "new"}
-  
+
   %table
     %thead
       %td Picture

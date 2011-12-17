@@ -8,7 +8,7 @@
   - unless user_signed_in?
     %br/
     %p #{ link_to 'Login', new_user_session_path } or #{ link_to 'sign up', new_user_registration_path } to get started!
-    
+
   - if user_signed_in?
     .clearfix
       .actions
@@ -19,4 +19,3 @@
             = link_to 'My Tools', :controller => "/tools", :id => current_user.id
           .btn
             = link_to 'My Projects', root_url # :controller => "/projects", :id => current_user.id
-        

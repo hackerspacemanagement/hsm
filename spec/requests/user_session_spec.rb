@@ -75,9 +75,9 @@ describe User do
   end
 
   describe 'recovering password via email' do
-    
+
     before do
-      @user_a = Factory.create(:user, :email => 'zoidberg@planet-express.com', 
+      @user_a = Factory.create(:user, :email => 'zoidberg@planet-express.com',
                                       :reset_password_token   => 'H32rewifdsjfds',
                                       :reset_password_sent_at => Time.now)
       confirm_user @user_a
@@ -99,7 +99,7 @@ describe User do
       sent_emails.should have(1).email
       page.should have_content('You will receive an email with instructions about how to reset your password in a few minutes.')
     end
-    
+
     it 'after following link in password reset email it should take you to a new page to reset your password' do
       visit edit_user_password_path(:reset_password_token => @user_a.reset_password_token)
       page.should have_content('Change your password')

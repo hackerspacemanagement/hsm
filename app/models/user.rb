@@ -20,11 +20,11 @@ class User < ActiveRecord::Base
     hash = Digest::MD5.hexdigest(email.downcase.strip)
     "http://www.gravatar.com/avatar/#{hash}?s=#{size}"
   end
-  
+
   # Are these #TODO or what? -re
   # has_many :skills
   # has_many :skill_levels
-  
+
   has_many :tools
 
   # Implements magic such as @user.is_an_admin_or_superhero?
