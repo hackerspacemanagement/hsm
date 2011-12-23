@@ -28,4 +28,11 @@ user.confirm!
 
 puts "User: #{ user.full_name } - #{ user.email } created and confirmed!"
 
+skill = Skill.new :name                => 'HSM Hacking',
+                  :description         => 'Hacking on the Hackerspace Management Application',
+                  :more_info_url       => 'http://github.com/rrix/hsm'
+
+skill.save rescue ActionView::Template::Error
+skill.save
+
 Rake::Task['db:permissions'].invoke
