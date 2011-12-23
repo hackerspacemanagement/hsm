@@ -3,7 +3,7 @@
 
   %h1= Settings.group_name
 
-  - if !@user_tools
+  - if !@user
     %h2= "Tools"
   - else
     %h2= @user.full_name + "'s Tools"
@@ -16,7 +16,8 @@
       %td= sort_link "Category", :category
       %td= sort_link "Name", :name
       %td= sort_link "Serial #", :serial_id
-      %td= sort_link "Owner", :user_id
+      - if !@user
+        %td= sort_link "Owner", :user_id
       %td= sort_link "Description", :description
     %tbody
       - @tools.each do |tool|
@@ -28,8 +29,9 @@
             %td
           %td= tool.name
           %td= tool.serial_id
-          - if !tool.user.nil?
-            %td= tool.user.full_name
-          - else
-            %td
+          - if !@user
+            - if !tool.user.nil?
+              %td= tool.user.full_name
+            - else
+              %td
           %td= tool.description
