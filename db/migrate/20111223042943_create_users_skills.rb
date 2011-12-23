@@ -7,7 +7,5 @@ class CreateUsersSkills < ActiveRecord::Migration
 
       t.timestamps
     end
-    
-    add_column :users, :users_skill_id, :integer
   end
 end
