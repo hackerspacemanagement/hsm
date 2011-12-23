@@ -1,7 +1,8 @@
 class UsersSkillsController < ApplicationController
     def index
        if params[:id] then
-           @uskills = UsersSkill.find(params[:id])
+           @user = User.find(params[:id])
+           @uskills = UsersSkill.where(:user_id => @user.id)
        else
            @uskills = UsersSkill.all
        end
