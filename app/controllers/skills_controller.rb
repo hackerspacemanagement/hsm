@@ -1,5 +1,6 @@
 class SkillsController < ApplicationController
     def index
+        @skills = Skill.all
     end
     
     def create
@@ -15,5 +16,15 @@ class SkillsController < ApplicationController
   
     def new
         @skill = Skill.new
+    end
+    
+    def show
+        if params[:id] then
+            @skill = Skill.find(params[:id])
+            @userskills = @skill.users_skills
+        else
+            flash[:alert] = 'No skill selected to show'
+            redirect_to skills_path
+        end
     end
 end
