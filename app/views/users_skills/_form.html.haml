@@ -1,7 +1,7 @@
 = form_for @users_skills, :html => { :multipart => true }  do |t|
   %p
     = t.label "Skill: "
-    = t.select :skill, @all_skills
+    = t.select :skill_id, @all_skills
     = link_to "Add a skill", {:controller => "skills", :action => "new"} 
   %p
     = t.label "Proficiency: "
