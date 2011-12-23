@@ -21,10 +21,7 @@ class User < ActiveRecord::Base
     "http://www.gravatar.com/avatar/#{hash}?s=#{size}"
   end
 
-  # Are these #TODO or what? -re
-  # has_many :skills
-  # has_many :skill_levels
-
+  has_many :skills, :through => :users_skills
   has_many :tools
 
   # Implements magic such as @user.is_an_admin_or_superhero?
