@@ -18,7 +18,7 @@ class UsersSkillsController < ApplicationController
         @users_skill = UsersSkill.new(params[:users_skill])
         @users_skill.user_id = current_user.id
         if @users_skill.save
-            flash[:notice] = "Dude, you are awesome. You've added a tool."
+            flash[:notice] = "Dude, you are awesome. You've added a skill!"
             redirect_to users_skills_path
         else
             flash[:alert] = 'You broke something. :-('
