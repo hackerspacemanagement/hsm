@@ -1,0 +1,21 @@
+.hero-unit
+  .pull-right= image_tag 'logo.png'
+
+  %h1= Settings.group_name
+
+  - if !@user_tools
+    %h2= "Skills"
+  - else
+    %h2= @user.full_name + "'s Skills"
+
+  %p= link_to "Add a skill", {:controller => "skills", :action => "new"}
+
+  %table
+    %thead
+      %td= sort_link "Name", :name
+      %td= sort_link "Description", :description
+    %tbody
+      - @skills.each do |skill|
+        %tr
+          %td= skill.description
+          %td= skill.name
