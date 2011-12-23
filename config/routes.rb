@@ -13,6 +13,7 @@ Hsm::Application.routes.draw do
   resource :home
   resources :tools
   resources :tool_categories
+  resources :skills
 
   root :to => 'home#index'
 
