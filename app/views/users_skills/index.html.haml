@@ -3,8 +3,8 @@
 
   %h1= Settings.group_name
 
-  - if !@user_tools
-    %h2= "Tools"
+  - if !@user
+    %h2= "Users' Skills"
   - else
     %h2= @user.full_name + "'s Skills"
 
@@ -14,7 +14,8 @@
     %thead
       %td= sort_link "Name", :name
       %td= sort_link "Proficiency", :proficiency
-      %td= sort_link "Owner", :user_id
+      - if !@user
+        %td= sort_link "Owner", :user_id
       %td= sort_link "Description", :description
     %tbody
       - @uskills.each do |user_skill|
@@ -22,8 +23,9 @@
         %tr
           %td= skill.name
           %td= user_skill.proficiency.to_s + " out of 5"
-          - if !user_skill.user.nil?
-            %td= user_skill.user.full_name
-          - else
-            %td
+          - if !@user
+            - if !user_skill.user.nil?
+              %td= user_skill.user.full_name
+            - else
+              %td
           %td= skill.description
