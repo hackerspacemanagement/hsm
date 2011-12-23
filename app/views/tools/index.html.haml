@@ -15,6 +15,7 @@
       %td Picture
       %td= sort_link "Category", :category
       %td= sort_link "Name", :name
+      %td= sort_link "Serial #", :serial_id
       %td= sort_link "Owner", :user_id
       %td= sort_link "Description", :description
     %tbody
@@ -26,6 +27,7 @@
           - else
             %td
           %td= tool.name
+          %td= tool.serial_id
           - if !tool.user.nil?
             %td= tool.user.full_name
           - else
