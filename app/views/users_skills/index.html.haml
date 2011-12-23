@@ -16,12 +16,12 @@
       %td= sort_link "Owner", :user_id
       %td= sort_link "Description", :description
     %tbody
-      - @uskills.each do |skill|
+      - @uskills.each do |user_skill|
         %tr
-          %td= skill.skill.name
-          - if !skill.user.nil?
-            %td= skill.user.full_name
+          %td= user_skill.skill.name
+          - if !user_skill.user.nil?
+            %td= user_skill.user.full_name
           - else
             %td
-          %td= skill.skill.description
+          %td= user_skill.skill.description
 
