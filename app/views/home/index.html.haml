@@ -14,7 +14,7 @@
       .actions
         %clearfix
           .btn
-            = link_to 'My Skills', root_url
+            = link_to 'My Skills', :controller => "/users_skills", :id => current_user.id
           .btn
             = link_to 'My Tools', :controller => "/tools", :id => current_user.id
           .btn
