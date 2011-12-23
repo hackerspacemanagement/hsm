@@ -1,0 +1,27 @@
+.hero-unit
+  .pull-right= image_tag 'logo.png'
+
+  %h1= Settings.group_name
+
+  - if !@user_tools
+    %h2= "Tools"
+  - else
+    %h2= @user.full_name + "'s Skills"
+
+  %p= link_to "Add a skill to your repertoir", {:controller => "users_skills", :action => "new"}
+
+  %table
+    %thead
+      %td= sort_link "Name", :name
+      %td= sort_link "Owner", :user_id
+      %td= sort_link "Description", :description
+    %tbody
+      - @uskills.each do |skill|
+        %tr
+          %td= skill.skill.name
+          - if !skill.user.nil?
+            %td= skill.user.full_name
+          - else
+            %td
+          %td= skill.skill.description
+
