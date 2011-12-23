@@ -2,7 +2,7 @@
   %p
     = t.label "Skill: "
     = t.select :skill, @all_skills
-    =# link_to "Add a skill", {:controller => "skills", :action => "new"} 
+    = link_to "Add a skill", {:controller => "skills", :action => "new"} 
   %p
     = t.label "Proficiency: "
     = t.select :proficiency, @proficiency_levels
