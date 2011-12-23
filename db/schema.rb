@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(:version => 20111223042943) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "role_id"
-    t.integer  "skill_id"
+    t.integer  "users_skill_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
