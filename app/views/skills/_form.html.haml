@@ -8,5 +8,8 @@
   %p
     = s.label "More Info URL: "
     = s.text_field :more_info_url
+  %p
+    = s.label "Role required to grant permission: "
+    = s.select :role_required_to_grant, @roles
 
   = s.submit
