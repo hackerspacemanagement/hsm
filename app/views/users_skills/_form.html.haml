@@ -6,5 +6,8 @@
   %p
     = t.label "Proficiency: "
     = t.select :proficiency, @proficiency_levels
-
+  %p
+    = t.label "User: "
+    = t.select :user_id, options_for_select(@users, current_user.id)
+    
   = t.submit

@@ -11,12 +11,12 @@ class UsersSkillsController < ApplicationController
     def new
         @users_skills = UsersSkill.new
         @all_skills = Skill.all.collect {|s| [ s.name, s.id ] }
+        @users = User.all.collect {|s| [s.full_name, s.id] }
         @proficiency_levels = [0,1,2,3,4,5]
     end   
     
     def create
         @users_skill = UsersSkill.new(params[:users_skill])
-        @users_skill.user_id = current_user.id
         
         # make sure the user is allowed to assign this role
         if @users_skill.skill.role_required_to_grant 
