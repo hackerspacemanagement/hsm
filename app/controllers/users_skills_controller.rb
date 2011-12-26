@@ -18,6 +18,12 @@ class UsersSkillsController < ApplicationController
     def create
         @users_skill = UsersSkill.new(params[:users_skill])
         
+        # Maker sure the user is either assigning it to them selves or is allowed to assign to others
+        if current_user.id != @users_skill.user.id and !current_user.can_arbitrarily_add_skills
+            flash[:alert] = 'You are not authorized to give other users skills.'
+            redirect_to edit_users_skills_path(@users_skill)
+        end
+        
         # make sure the user is allowed to assign this role
         if @users_skill.skill.role_required_to_grant 
             if !@users_skill.user.roles.find( @users_skill.skill.role_required_to_grant )
