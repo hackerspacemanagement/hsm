@@ -21,7 +21,7 @@
       - @uskills.each do |user_skill|
         - skill = Skill.find(user_skill.skill_id)
         %tr
-          %td= skill.name
+          %td= link_to skill.name, skill_path(skill.id)
           %td= user_skill.proficiency.to_s + " out of 5"
           - if !@user
             - if !user_skill.user.nil?
