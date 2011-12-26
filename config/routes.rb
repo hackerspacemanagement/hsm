@@ -1,6 +1,8 @@
 Hsm::Application.routes.draw do
 
   get "administration/index"
+  
+  get "administration/roles"
 
   get "administration/users"
 

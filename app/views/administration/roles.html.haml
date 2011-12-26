@@ -1,0 +1,23 @@
+.hero-unit
+  %h1 Roles
+
+  %table
+    %thead
+      %tr
+        %th Name
+        %th Description
+        %th Permissions
+        %th Actions
+    %tbody
+      - @roles.each do |r|
+        %tr
+          %td= r.name
+          %td= r.description
+          %td
+            - r.permissions.collect{|p| [p.name]}.each do |p|
+              = p[0] + ", "
+          %td
+            .actions
+              .btn
+                -# TODO
+                -# = link_to 'Edit', user_edit_path(u)

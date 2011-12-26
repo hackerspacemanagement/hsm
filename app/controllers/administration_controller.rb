@@ -11,5 +11,9 @@ class AdministrationController < ApplicationController
   def configuration
     @config = Settings.all
   end
+  
+  def roles
+      @roles = Role.all
+  end
 
 end
