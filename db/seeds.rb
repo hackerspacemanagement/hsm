@@ -15,8 +15,8 @@ puts "Permission: #{ permission.name } added"
 
 puts 'Setting up administrator role.'
 role = Role.new :name => 'Administrator',
-                :description => 'Administrators have absolute power and inherently have all roles'
-                :permissions => [permission.id]
+                :description => 'Administrators have absolute power and inherently have all roles',
+                :permissions => [permission]
                 
 role.save rescue ActionView::Template::Error
 role.save
