@@ -16,6 +16,8 @@ class SkillsController < ApplicationController
   
     def new
         @skill = Skill.new
+        @roles = Role.all.collect {|r| [ r.name, r.id ]}
+        @roles << ["None", ""]
     end
     
     def show
