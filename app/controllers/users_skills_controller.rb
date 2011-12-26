@@ -19,9 +19,9 @@ class UsersSkillsController < ApplicationController
         @users_skill.user_id = current_user.id
         
         # make sure the user is allowed to assign this role
-        if @user_skill.skill.role_required_to_grant 
-            if !@users_skill.user.roles.find( @user_skill.skill.role_required_to_grant )
-                flash[:alert] = 'You are not assigned to the Required Role for this skill. Cannot assign'
+        if @users_skill.skill.role_required_to_grant 
+            if !@users_skill.user.roles.find( @users_skill.skill.role_required_to_grant )
+                flash[:alert] = 'You are not assigned to the Required Role for assigning this skill. Cannot assign'
                 redirect_to edit_users_skills_path(@users_skill)
             end
         end
