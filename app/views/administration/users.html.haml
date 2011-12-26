@@ -7,15 +7,16 @@
         %th Email
         %th Real Name
         %th Role
-        %th Permissions
         %th Actions
     %tbody
       - @users.each do |u|
         %tr
           %td= u.email
           %td= u.full_name
-          %td= u.role.name
-          %td= u.permissions.to_s
+          - if u.role
+            %td= u.role.name
+          - else
+            %td None
           %td
             .actions
               .btn
