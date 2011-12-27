@@ -1,0 +1,25 @@
+.hero-unit
+  .pull-right= image_tag 'logo.png'
+
+  %h1= Settings.group_name
+
+  - if !@user
+    %h2= "Tools"
+  - else
+    %h2= @user.full_name + "'s Skills"
+
+  %p= link_to "Add a skill", {:controller => "skills", :action => "new"}
+
+  %table
+    %thead
+      %td= sort_link "Name", :name
+      %td= sort_link "Description", :description
+      %td= sort_link "More Info URL", :more_info_url
+      %td= sort_link "Knowledgable Users", :knowledgable_users
+    %tbody
+      - @skills.each do |skill|
+        %tr
+          %td= skill.name
+          %td= skill.description
+          %td= link_to "[link]", skill.more_info_url
+          %td= link_to UsersSkill.where(:skill_id => skill.id).count, :controller => "skills", :action => "show", :id => skill.id

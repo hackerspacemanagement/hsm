@@ -21,10 +21,7 @@ class User < ActiveRecord::Base
     "http://www.gravatar.com/avatar/#{hash}?s=#{size}"
   end
 
-  # Are these #TODO or what? -re
-  # has_many :skills
-  # has_many :skill_levels
-
+  has_many :skills, :through => :users_skills
   has_many :tools
 
   # Implements magic such as @user.is_an_admin_or_superhero?
@@ -36,7 +33,9 @@ class User < ActiveRecord::Base
         end
         return false
     elsif match = matches_dynamic_perm_check?(method_id)
-        return true if is_an_administrator? or (role and permissions.find_by_name(match.captures.first))
+        return true if is_an_administrator? 
+        return true if role and permissions.find_by_name(match.captures.first)
+        return false
     else
         super
     end
