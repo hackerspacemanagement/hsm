@@ -31,7 +31,7 @@ class UsersSkillsController < ApplicationController
                 redirect_to edit_users_skills_path(@users_skill)
             end
         end
-            
+         
         if @users_skill.save
             flash[:notice] = "Dude, you are awesome. You've added a skill!"
             redirect_to users_skills_path
