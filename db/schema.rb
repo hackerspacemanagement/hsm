@@ -45,11 +45,17 @@ ActiveRecord::Schema.define(:version => 20111226202228) do
 
   create_table "skills", :force => true do |t|
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     t.string   "name"
     t.string   "description"
     t.string   "more_info_url"
 >>>>>>> Set up relationships
+=======
+    t.string   "name"
+    t.string   "description"
+    t.string   "more_info_url"
+>>>>>>> 003a09caa42eb974e1be255f14ecdc1a02e60b90
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role_required_to_grant"
