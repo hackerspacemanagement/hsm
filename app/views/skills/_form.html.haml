@@ -10,6 +10,6 @@
     = s.text_field :more_info_url
   %p
     = s.label "Role required to grant permission: "
-    = s.select :role_required_to_grant, @roles
+    = s.select :role_required_to_grant, options_for_select(@roles, @roles.last[1])
 
   = s.submit
