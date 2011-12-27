@@ -29,11 +29,11 @@ class User < ActiveRecord::Base
   def method_missing(method_id, *args)
     if match = matches_dynamic_role_check?(method_id)
         tokenize_roles(match.captures.first).each do |check|
-            return true if role.name.downcase == check
+            return true if role and role.name.downcase == check
         end
         return false
     elsif match = matches_dynamic_perm_check?(method_id)
-        return true if is_an_administrator? or permissions.find_by_name(match.captures.first)
+        return true if is_an_administrator? or (role and permissions.find_by_name(match.captures.first))
     else
         super
     end
