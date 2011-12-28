@@ -15,18 +15,19 @@ class ToolsController < ApplicationController
   def new
     @tool = Tool.new
     # This violates DRY. -rr
+    @users = User.all.collect { |p| [p.full_name, p.id]} << [Settings.group_name, ""]
     @categories = ToolCategory.all.collect {|p| [ p.name, p.id ] }
   end
 
   def edit
     @tool = Tool.find(params[:id])
     # This violates DRY. -rr
+    @users = User.all.collect { |p| [p.full_name, p.id]} << [Settings.group_name, ""]
     @categories = ToolCategory.all.collect {|p| [ p.name, p.id ] }
   end
 
   def create
     @tool = Tool.new(params[:tool])
-    @tool.user_id = current_user.id
     @tool.date_added = Time.now
     if @tool.save
       flash[:notice] = "Dude, you are awesome. You've added a tool."
