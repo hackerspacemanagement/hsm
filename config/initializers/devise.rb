@@ -10,7 +10,7 @@ Devise.setup do |config|
   if ActiveRecord::Base.connection.tables.include?('settings')
       config.mailer_sender = Settings.mail_from_address
   else
-      config.mailer_sender = 'hsm@localhost'
+      config.mailer_sender = 'hsm@intranet.heatsynclabs.org'
   end
 
   # Configure the class responsible to send e-mails.
