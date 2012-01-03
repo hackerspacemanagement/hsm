@@ -1,0 +1,14 @@
+.hero-unit
+  .pull-right= image_tag 'logo.png'
+
+  %h1= Settings.group_name
+
+  %h2 Settings
+
+  = form_tag '/settings' do
+    - @config.each do |c|
+      %p
+        = "#{ c[0] }: "
+        = text_field "value", c[0], :value => c[1]
+    = submit_tag 'Save'
+    
