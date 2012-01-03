@@ -9,11 +9,18 @@ Hsm::Application.routes.draw do
 
   devise_for :users
 
+  # user views
   resource :home
   resources :tools
-  resources :tool_categories
   resources :users_skills
   resources :skills
+  
+  # admin views
+  resources :tool_categories
+  resources :settings
+  resources :users
+  resources :roles
+  resource :administration
 
   root :to => 'home#index'
 
