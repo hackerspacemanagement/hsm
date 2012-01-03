@@ -1,0 +1,21 @@
+.hero-unit
+  .pull-right= image_tag 'logo.png'
+
+  %h1= Settings.group_name
+
+  %h2 Roles
+  
+  %table
+    %thead
+      %th Name
+      %th Description
+      %th Permissions
+      %th Actions
+    %tbody
+      - @roles.each do |role|
+        %td= role.name
+        %td= role.description
+        %td= role.permissions.collect { |p| [ p.name ] }
+        %td
+          .btn
+            = link_to "Edit", edit_role_path(role.id)
