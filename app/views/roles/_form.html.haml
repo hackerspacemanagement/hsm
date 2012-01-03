@@ -1,0 +1,16 @@
+=form_for @role, do |form|
+  %p
+    =form.label "Name: "
+    =form.text_field :name
+  %p
+    =form.label "Description: "
+    =form.text_field :description, :class => 'xxlarge'
+  %p
+    =form.label "Permissions: "
+    - @role.permissions.each do |perm|
+      = perm.name
+      = ' '
+      =link_to "[x]", :controller => 'roles', :action => 'remove_permission', :role_id => @role.id, :perm_id => perm.id
+      = ', '
+  
+  =form.submit

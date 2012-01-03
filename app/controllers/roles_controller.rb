@@ -4,5 +4,9 @@ class RolesController < ApplicationController
     end
     
     def edit
+        @role = Role.find(params[:id])
+    end
+    
+    def remove_permission
     end
 end
