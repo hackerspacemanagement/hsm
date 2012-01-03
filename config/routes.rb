@@ -21,6 +21,7 @@ Hsm::Application.routes.draw do
   resources :users
   resources :roles
   post '/roles/remove_permission'
+  post '/roles/delete'
   post '/roles/add_permission'
   resources :administration
 

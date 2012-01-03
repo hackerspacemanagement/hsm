@@ -7,6 +7,32 @@ class RolesController < ApplicationController
         @role = Role.find(params[:id])
     end
     
+    def new
+        @role = Role.new
+    end
+    
+    def create
+        @role = Role.new(params[:role])
+        
+        if @role.save then
+            flash[:notice] = "Saved the Role."
+            redirect_to edit_role_path(@role)
+        else
+            flash[:alert] = "Could not save Role."
+            redirect_to new_role_path(@role)
+        end
+    end
+    
+    def delete
+        if Role.delete(Role.find(params[:id])) then
+            flash[:notice] = "The role has been deleted."
+            redirect_to role_path
+        else
+            flash[:alert] = "The role could not be deleted."
+            redirect_to role_path
+        end
+    end
+    
     def remove_permission
         @role = Role.find(params[:role_id])
         
