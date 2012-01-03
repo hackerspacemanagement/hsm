@@ -14,8 +14,9 @@
     = ' '
     = link_to "[x]", roles_remove_permission_path( :role_id => @role.id, :perm_id => perm.id ), :method => 'post'
     = ', '
+  %br
 %p
-  = label_tag "Add new Permission"
+  = label_tag "New permission: "
   = form_tag roles_add_permission_path do
     = hidden_field :role, :id
     = text_field '', :new_perm
