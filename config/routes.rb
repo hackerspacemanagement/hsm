@@ -20,7 +20,7 @@ Hsm::Application.routes.draw do
   resources :settings
   resources :users
   resources :roles
-  resource :administration
+  resources :administration
 
   root :to => 'home#index'
 
