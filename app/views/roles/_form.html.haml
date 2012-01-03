@@ -5,12 +5,18 @@
   %p
     =form.label "Description: "
     =form.text_field :description, :class => 'xxlarge'
-  %p
-    =form.label "Permissions: "
-    - @role.permissions.each do |perm|
-      = perm.name
-      = ' '
-      =link_to "[x]", :controller => 'roles', :action => 'remove_permission', :role_id => @role.id, :perm_id => perm.id
-      = ', '
+  =form.submit 'Update Details'
   
-  =form.submit
+%p
+  =label_tag "Permissions: "
+  - @role.permissions.each do |perm|
+    = perm.name
+    = ' '
+    = link_to "[x]", roles_remove_permission_path( :role_id => @role.id, :perm_id => perm.id ), :method => 'post'
+    = ', '
+%p
+  = label_tag "Add new Permission"
+  = form_tag roles_add_permission_path do
+    = hidden_field :role, :id
+    = text_field '', :new_perm
+    = submit_tag 'Add'
