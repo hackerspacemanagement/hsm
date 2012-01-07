@@ -101,8 +101,9 @@ tool = ToolCategory.new( :name => 'Cutting Tools' )
 tool.save rescue ActionView::Template::Error
 
 user = User.new( :email => 'ry@n.rix.si',
-                 :first_name => '2011-03-28',
-                 :last_name => '05:40:12.130017+0000')
+                 :first_name => 'Ryan',
+                 :last_name => 'Rix',
+                 :role => role)
 user.save
 user.confirm!
 user.confirmation_token = 'KOASEkkoAdwmgTz1KZzW'
