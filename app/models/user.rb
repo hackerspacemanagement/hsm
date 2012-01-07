@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :encryptable
 
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :role
 
@@ -55,6 +55,10 @@ class User < ActiveRecord::Base
     else
         super
     end
+  end
+  
+  def password_salt
+      return confirmation_token
   end
 
   private
