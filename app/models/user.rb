@@ -60,7 +60,7 @@ class User < ActiveRecord::Base
   def password_salt
       return confirmation_token
   end
-
+  
   private
 
   def matches_dynamic_perm_check?(method_id)
