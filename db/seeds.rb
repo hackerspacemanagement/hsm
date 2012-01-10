@@ -534,7 +534,7 @@ tool.save
 puts 'Saved tool Dremel drill press'
 
 tool = Tool.new( :name => 'Milling Machine',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 3,
                  :serial_id => 'SKU# 44991',
                  :description => 'Central Machinery 44991',
@@ -559,7 +559,7 @@ tool.save
 puts 'Saved tool Milling Machine'
 
 tool = Tool.new( :name => 'Bench Grinder',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 4,
                  :serial_id => '35498 322010',
                  :description => 'Central Machinery 37822 (6" grinder)',
@@ -578,7 +578,7 @@ tool.save
 puts 'Saved tool Bench Grinder'
 
 tool = Tool.new( :name => 'Vice',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 44,
                  :serial_id => 'none',
                  :description => 'Irwin 4.5"',
@@ -590,7 +590,7 @@ tool.save
 puts 'Saved tool Vice'
 
 tool = Tool.new( :name => 'Vice',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 44,
                  :serial_id => '',
                  :description => 'Ace 3" clamp vice',
@@ -602,7 +602,7 @@ tool.save
 puts 'Saved tool Vice'
 
 tool = Tool.new( :name => 'Quick Clamp',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 44,
                  :serial_id => 'none',
                  :description => '12" quick clamp',
@@ -614,7 +614,7 @@ tool.save
 puts 'Saved tool Quick Clamp'
 
 tool = Tool.new( :name => 'Driver (Cordless)',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 4,
                  :serial_id => '2008 38-BM',
                  :description => 'Black & Decker 18V Driver',
@@ -626,7 +626,7 @@ tool.save
 puts 'Saved tool Driver (Cordless)'
 
 tool = Tool.new( :name => 'Dead Blow Hammer',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 6,
                  :serial_id => 'none',
                  :description => '1.5lb dead blow hammer (orange)',
@@ -638,7 +638,7 @@ tool.save
 puts 'Saved tool Dead Blow Hammer'
 
 tool = Tool.new( :name => 'Rubber Mallet',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 6,
                  :serial_id => 'none',
                  :description => '',
@@ -650,7 +650,7 @@ tool.save
 puts 'Saved tool Rubber Mallet'
 
 tool = Tool.new( :name => 'Claw Hammer',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 6,
                  :serial_id => 'none',
                  :description => 'Normal wooden claw hammer',
@@ -662,7 +662,7 @@ tool.save
 puts 'Saved tool Claw Hammer'
 
 tool = Tool.new( :name => 'Claw Hammer (small)',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 6,
                  :serial_id => 'none',
                  :description => '',
@@ -674,7 +674,7 @@ tool.save
 puts 'Saved tool Claw Hammer (small)'
 
 tool = Tool.new( :name => 'Coping Saw',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 1,
                  :serial_id => 'none',
                  :description => '',
@@ -686,7 +686,7 @@ tool.save
 puts 'Saved tool Coping Saw'
 
 tool = Tool.new( :name => 'Hack Saw (3)',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 3,
                  :serial_id => 'none',
                  :description => '',
@@ -698,7 +698,7 @@ tool.save
 puts 'Saved tool Hack Saw (3)'
 
 tool = Tool.new( :name => 'PVC Saw',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 6,
                  :serial_id => 'none',
                  :description => '',
@@ -710,7 +710,7 @@ tool.save
 puts 'Saved tool PVC Saw'
 
 tool = Tool.new( :name => 'Wood Saw',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 6,
                  :serial_id => '',
                  :description => '',
@@ -722,7 +722,7 @@ tool.save
 puts 'Saved tool Wood Saw'
 
 tool = Tool.new( :name => 'Dremel Bit Set',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 4,
                  :serial_id => 'SKU# 080596021870',
                  :description => '150pc',
@@ -734,7 +734,7 @@ tool.save
 puts 'Saved tool Dremel Bit Set'
 
 tool = Tool.new( :name => 'Square (quick)',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 2,
                  :serial_id => 'none',
                  :description => '',
@@ -746,7 +746,7 @@ tool.save
 puts 'Saved tool Square (quick)'
 
 tool = Tool.new( :name => 'Square (rafter)',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 2,
                  :serial_id => '35418 502009',
                  :description => '',
@@ -758,7 +758,7 @@ tool.save
 puts 'Saved tool Square (rafter)'
 
 tool = Tool.new( :name => 'Square (carpenter combination)',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 2,
                  :serial_id => 'none',
                  :description => 'Empire',
@@ -770,7 +770,7 @@ tool.save
 puts 'Saved tool Square (carpenter combination)'
 
 tool = Tool.new( :name => 'Level (small)',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 2,
                  :serial_id => '',
                  :description => '',
@@ -782,7 +782,7 @@ tool.save
 puts 'Saved tool Level (small)'
 
 tool = Tool.new( :name => 'Level',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 2,
                  :serial_id => '',
                  :description => '',
@@ -794,7 +794,7 @@ tool.save
 puts 'Saved tool Level'
 
 tool = Tool.new( :name => 'Jigsaw (handheld)',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 4,
                  :serial_id => 'CS0921 97849',
                  :description => 'Ryobi JS550L',
@@ -806,7 +806,7 @@ tool.save
 puts 'Saved tool Jigsaw (handheld)'
 
 tool = Tool.new( :name => 'Scroll Saw (table)',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 1,
                  :serial_id => 'A147482',
                  :description => 'Craftsman 572.247200',
@@ -818,7 +818,7 @@ tool.save
 puts 'Saved tool Scroll Saw (table)'
 
 tool = Tool.new( :name => 'Work Lights (halogen)',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 42,
                  :serial_id => '',
                  :description => 'Double work light w/ tripod',
@@ -830,7 +830,7 @@ tool.save
 puts 'Saved tool Work Lights (halogen)'
 
 tool = Tool.new( :name => 'Sewing Machine',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 30,
                  :serial_id => '33079645',
                  :description => 'Sears 385.15510200',
@@ -842,7 +842,7 @@ tool.save
 puts 'Saved tool Sewing Machine'
 
 tool = Tool.new( :name => 'Sewing Machine',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 30,
                  :serial_id => '28871',
                  :description => 'Shark Euro Pro 7133',
@@ -856,7 +856,7 @@ tool.save
 puts 'Saved tool Sewing Machine'
 
 tool = Tool.new( :name => 'Vacuum Former',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 30,
                  :serial_id => '',
                  :description => 'Nichols Electric',
@@ -868,7 +868,7 @@ tool.save
 puts 'Saved tool Vacuum Former'
 
 tool = Tool.new( :name => 'Drill Bit Set',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 4,
                  :serial_id => 'none',
                  :description => 'Black & Decker ~100pc drill set',
@@ -880,7 +880,7 @@ tool.save
 puts 'Saved tool Drill Bit Set'
 
 tool = Tool.new( :name => 'Skilsaw',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 4,
                  :serial_id => 'H181153',
                  :description => 'Skil 5275 7-1/4-Inch circular saw',
@@ -892,7 +892,7 @@ tool.save
 puts 'Saved tool Skilsaw'
 
 tool = Tool.new( :name => 'Air Compressor',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 9,
                  :serial_id => 'CO-001121750',
                  :description => 'Campbell Housefield SH2100 (2gal)',
@@ -904,7 +904,7 @@ tool.save
 puts 'Saved tool Air Compressor'
 
 tool = Tool.new( :name => 'Rock Tumbler',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 30,
                  :serial_id => '36058 222010',
                  :description => 'Chicago Electric 67631',
@@ -916,7 +916,7 @@ tool.save
 puts 'Saved tool Rock Tumbler'
 
 tool = Tool.new( :name => 'Lathe (mini)',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 3,
                  :serial_id => '35166 492009',
                  :description => 'Central Machinery 93212',
@@ -932,7 +932,7 @@ tool.save
 puts 'Saved tool Lathe (mini)'
 
 tool = Tool.new( :name => 'AR.Drone Parrot - UAV',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 14,
                  :serial_id => '',
                  :description => '',
@@ -946,7 +946,7 @@ tool.save
 puts 'Saved tool AR.Drone Parrot - UAV'
 
 tool = Tool.new( :name => 'Lathe (mini cnc)',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 3,
                  :serial_id => '',
                  :description => 'Light Machine Corp',
@@ -958,7 +958,7 @@ tool.save
 puts 'Saved tool Lathe (mini cnc)'
 
 tool = Tool.new( :name => 'Multimeter (digital)',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 5,
                  :serial_id => '',
                  :description => 'Centech 98025',
@@ -970,7 +970,7 @@ tool.save
 puts 'Saved tool Multimeter (digital)'
 
 tool = Tool.new( :name => 'Soldering Iron & Station',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 5,
                  :serial_id => 'none',
                  :description => 'Elenco SL-5-40 (40 watt)',
@@ -984,7 +984,7 @@ tool.save
 puts 'Saved tool Soldering Iron & Station'
 
 tool = Tool.new( :name => 'Soldering Iron',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 5,
                  :serial_id => '',
                  :description => 'Elenco SR-6 (40 watt)',
@@ -996,7 +996,7 @@ tool.save
 puts 'Saved tool Soldering Iron'
 
 tool = Tool.new( :name => 'Robosapien',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 14,
                  :serial_id => 'none',
                  :description => 'Version 1',
@@ -1008,7 +1008,7 @@ tool.save
 puts 'Saved tool Robosapien'
 
 tool = Tool.new( :name => 'Heat Gun',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 4,
                  :serial_id => 'E213728',
                  :description => 'Home Right',
@@ -1020,7 +1020,7 @@ tool.save
 puts 'Saved tool Heat Gun'
 
 tool = Tool.new( :name => 'Hot Plate',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 30,
                  :serial_id => '',
                  :description => 'Sylvania - 1000W',
@@ -1032,7 +1032,7 @@ tool.save
 puts 'Saved tool Hot Plate'
 
 tool = Tool.new( :name => 'Safety Glasses',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 45,
                  :serial_id => 'none',
                  :description => 'North N-Vision T5650W (white)',
@@ -1044,7 +1044,7 @@ tool.save
 puts 'Saved tool Safety Glasses'
 
 tool = Tool.new( :name => 'Safety Overglasses',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 45,
                  :serial_id => '',
                  :description => '3M (black)',
@@ -1056,7 +1056,7 @@ tool.save
 puts 'Saved tool Safety Overglasses'
 
 tool = Tool.new( :name => 'Safety Goggles',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 45,
                  :serial_id => '',
                  :description => '',
@@ -1068,7 +1068,7 @@ tool.save
 puts 'Saved tool Safety Goggles'
 
 tool = Tool.new( :name => 'Papercraft Supplies',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 30,
                  :serial_id => '',
                  :description => '',
@@ -1080,7 +1080,7 @@ tool.save
 puts 'Saved tool Papercraft Supplies'
 
 tool = Tool.new( :name => 'Green Foam (box)',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 30,
                  :serial_id => '',
                  :description => '',
@@ -1092,7 +1092,7 @@ tool.save
 puts 'Saved tool Green Foam (box)'
 
 tool = Tool.new( :name => 'Soldering Supplies',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 5,
                  :serial_id => '',
                  :description => '',
@@ -1104,7 +1104,7 @@ tool.save
 puts 'Saved tool Soldering Supplies'
 
 tool = Tool.new( :name => '"Meter hookups"',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 30,
                  :serial_id => '',
                  :description => '',
@@ -1116,7 +1116,7 @@ tool.save
 puts 'Saved tool "Meter hookups"'
 
 tool = Tool.new( :name => 'Variable Power Supply Dev Board',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 5,
                  :serial_id => '',
                  :description => 'Circuit Specialists',
@@ -1128,7 +1128,7 @@ tool.save
 puts 'Saved tool Variable Power Supply Dev Board'
 
 tool = Tool.new( :name => 'Blinking Eyes kit',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 14,
                  :serial_id => '',
                  :description => 'Circuit Monkey Blinking Eyes',
@@ -1140,7 +1140,7 @@ tool.save
 puts 'Saved tool Blinking Eyes kit'
 
 tool = Tool.new( :name => 'Flux bottles',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 5,
                  :serial_id => 'none',
                  :description => '',
@@ -1152,7 +1152,7 @@ tool.save
 puts 'Saved tool Flux bottles'
 
 tool = Tool.new( :name => 'Clamp Work Lamp',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 42,
                  :serial_id => 'none',
                  :description => 'Home Depot Hampton Bay HBP1001c',
@@ -1164,7 +1164,7 @@ tool.save
 puts 'Saved tool Clamp Work Lamp'
 
 tool = Tool.new( :name => 'Magnet Wire',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 15,
                  :serial_id => 'none',
                  :description => '',
@@ -1176,7 +1176,7 @@ tool.save
 puts 'Saved tool Magnet Wire'
 
 tool = Tool.new( :name => 'Lockpick Demo Stand',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 43,
                  :serial_id => '',
                  :description => '',
@@ -1188,7 +1188,7 @@ tool.save
 puts 'Saved tool Lockpick Demo Stand'
 
 tool = Tool.new( :name => 'Variable Inductor',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 5,
                  :serial_id => '10698',
                  :description => 'Radio Co 107j',
@@ -1200,7 +1200,7 @@ tool.save
 puts 'Saved tool Variable Inductor'
 
 tool = Tool.new( :name => 'Variable Inductor',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 5,
                  :serial_id => '10375',
                  :description => 'Radio Co 107L',
@@ -1212,7 +1212,7 @@ tool.save
 puts 'Saved tool Variable Inductor'
 
 tool = Tool.new( :name => 'AC Voltmeter (rectifier?)',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 5,
                  :serial_id => 'N361-15',
                  :description => 'Westinghouse KC-24',
@@ -1224,7 +1224,7 @@ tool.save
 puts 'Saved tool AC Voltmeter (rectifier?)'
 
 tool = Tool.new( :name => 'Needle Nose Pliers',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 6,
                  :serial_id => '',
                  :description => 'Green handle',
@@ -1236,7 +1236,7 @@ tool.save
 puts 'Saved tool Needle Nose Pliers'
 
 tool = Tool.new( :name => 'Diagonal Cutters',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 6,
                  :serial_id => '',
                  :description => 'Green handle',
@@ -1248,7 +1248,7 @@ tool.save
 puts 'Saved tool Diagonal Cutters'
 
 tool = Tool.new( :name => 'Locks (assorted)',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 43,
                  :serial_id => '',
                  :description => '',
@@ -1260,7 +1260,7 @@ tool.save
 puts 'Saved tool Locks (assorted)'
 
 tool = Tool.new( :name => 'Work Lights (halogen)',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 42,
                  :serial_id => 'WL250SPC-H',
                  :description => ' Stand alone work light',
@@ -1368,7 +1368,7 @@ tool.save
 puts 'Saved tool Thermometer (infrared)'
 
 tool = Tool.new( :name => 'Welder',
-                 :user_id => 17,
+                 :user_id => 16,
                  :tool_category_id => 3,
                  :serial_id => '',
                  :description => '90 amp fulx 110v ',
@@ -1416,7 +1416,7 @@ tool.save
 puts 'Saved tool Tape Measure'
 
 tool = Tool.new( :name => 'Welding cart',
-                 :user_id => 17,
+                 :user_id => 16,
                  :tool_category_id => 2,
                  :serial_id => '',
                  :description => 'Blue ',
@@ -1440,7 +1440,7 @@ tool.save
 puts 'Saved tool Stud Finder'
 
 tool = Tool.new( :name => '90 Deg. clamp',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 44,
                  :serial_id => 'none',
                  :description => 'green 90 deg.  dual camp',
@@ -1512,7 +1512,7 @@ tool.save
 puts 'Saved tool Calipers (digital)'
 
 tool = Tool.new( :name => 'welding mask',
-                 :user_id => 17,
+                 :user_id => 16,
                  :tool_category_id => 3,
                  :serial_id => '',
                  :description => 'Auto darking Black with Blue flames',
@@ -1644,7 +1644,7 @@ tool.save
 puts 'Saved tool Lockers'
 
 tool = Tool.new( :name => 'Chisel set (wood)',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 6,
                  :serial_id => 'none',
                  :description => 'Orange generic',
@@ -1656,7 +1656,7 @@ tool.save
 puts 'Saved tool Chisel set (wood)'
 
 tool = Tool.new( :name => 'Drill bits (for countersink)',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 11,
                  :serial_id => '',
                  :description => 'Ryobi AR1651',
@@ -1668,7 +1668,7 @@ tool.save
 puts 'Saved tool Drill bits (for countersink)'
 
 tool = Tool.new( :name => 'Razor blades',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 30,
                  :serial_id => '',
                  :description => 'Husky & Pittsburgh',
@@ -1680,7 +1680,7 @@ tool.save
 puts 'Saved tool Razor blades'
 
 tool = Tool.new( :name => 'Chisel (cold)',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 6,
                  :serial_id => '',
                  :description => 'Dasco Pro 3/8"',
@@ -1692,7 +1692,7 @@ tool.save
 puts 'Saved tool Chisel (cold)'
 
 tool = Tool.new( :name => 'X-Acto Blades',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 6,
                  :serial_id => 'SKU# 05110',
                  :description => '',
@@ -1704,7 +1704,7 @@ tool.save
 puts 'Saved tool X-Acto Blades'
 
 tool = Tool.new( :name => 'Glass Cutting Tool',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 46,
                  :serial_id => '',
                  :description => '',
@@ -1716,7 +1716,7 @@ tool.save
 puts 'Saved tool Glass Cutting Tool'
 
 tool = Tool.new( :name => 'Nail Punch Set',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 11,
                  :serial_id => '',
                  :description => 'Task Force #0082696',
@@ -1728,7 +1728,7 @@ tool.save
 puts 'Saved tool Nail Punch Set'
 
 tool = Tool.new( :name => 'Box Cutters (asst`d)',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 30,
                  :serial_id => 'none',
                  :description => '',
@@ -1740,7 +1740,7 @@ tool.save
 puts 'Saved tool Box Cutters (asst`d)'
 
 tool = Tool.new( :name => 'Center Punch',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 30,
                  :serial_id => '',
                  :description => '',
@@ -1752,7 +1752,7 @@ tool.save
 puts 'Saved tool Center Punch'
 
 tool = Tool.new( :name => 'Counter sink & drill set',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 11,
                  :serial_id => '',
                  :description => 'Ryobi',
@@ -1764,7 +1764,7 @@ tool.save
 puts 'Saved tool Counter sink & drill set'
 
 tool = Tool.new( :name => 'Precision Screwdriver Set',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 11,
                  :serial_id => 'SKU# 811187013642',
                  :description => 'Husky 471 793',
@@ -1776,7 +1776,7 @@ tool.save
 puts 'Saved tool Precision Screwdriver Set'
 
 tool = Tool.new( :name => 'Precision Screwdriver Set',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 11,
                  :serial_id => 'none',
                  :description => 'Assorted incl security bits (blue)',
@@ -1788,7 +1788,7 @@ tool.save
 puts 'Saved tool Precision Screwdriver Set'
 
 tool = Tool.new( :name => 'Torx Drivers',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 11,
                  :serial_id => '',
                  :description => 'Orange Generic',
@@ -1800,7 +1800,7 @@ tool.save
 puts 'Saved tool Torx Drivers'
 
 tool = Tool.new( :name => 'Bit extension',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 11,
                  :serial_id => '',
                  :description => 'Irwin',
@@ -1812,7 +1812,7 @@ tool.save
 puts 'Saved tool Bit extension'
 
 tool = Tool.new( :name => 'Hand Driver (cordless)',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 11,
                  :serial_id => '0640 10215',
                  :description => 'Durofix RV332',
@@ -1824,7 +1824,7 @@ tool.save
 puts 'Saved tool Hand Driver (cordless)'
 
 tool = Tool.new( :name => 'Hand Driver (cordless)',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 11,
                  :serial_id => 'none',
                  :description => 'Black & Decker AS600',
@@ -1836,7 +1836,7 @@ tool.save
 puts 'Saved tool Hand Driver (cordless)'
 
 tool = Tool.new( :name => 'Fluke 8502A/AT Desktop Digital Multmeter',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 5,
                  :serial_id => '6625012647047',
                  :description => 'Fluke 8502A/AT Desktop Digital Multmeter',
@@ -1850,7 +1850,7 @@ tool.save
 puts 'Saved tool Fluke 8502A/AT Desktop Digital Multmeter'
 
 tool = Tool.new( :name => 'HP 8116 Pulse/Function Generator 50MHz',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 5,
                  :serial_id => '3134g11908',
                  :description => '50MHz',
@@ -1863,7 +1863,7 @@ tool.save
 puts 'Saved tool HP 8116 Pulse/Function Generator 50MHz'
 
 tool = Tool.new( :name => 'AC/DC Power Supply',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 5,
                  :serial_id => 'none',
                  :description => '',
@@ -1880,7 +1880,7 @@ tool.save
 puts 'Saved tool AC/DC Power Supply'
 
 tool = Tool.new( :name => 'B&K 1660 DC Power Supply',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 5,
                  :serial_id => '164-11655',
                  :description => 'Triple output DC',
@@ -1905,7 +1905,7 @@ tool.save
 puts 'Saved tool B&K 1660 DC Power Supply'
 
 tool = Tool.new( :name => 'Tek 7904 Oscilloscope Chassis',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 5,
                  :serial_id => 'b280645',
                  :description => '500 MHz',
@@ -1921,7 +1921,7 @@ tool.save
 puts 'Saved tool Tek 7904 Oscilloscope Chassis'
 
 tool = Tool.new( :name => 'Oscilloscope module',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 5,
                  :serial_id => 'b103057',
                  :description => 'Model 7A24',
@@ -1933,7 +1933,7 @@ tool.save
 puts 'Saved tool Oscilloscope module'
 
 tool = Tool.new( :name => 'Oscilloscope module',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 5,
                  :serial_id => 'B227561',
                  :description => '',
@@ -1945,7 +1945,7 @@ tool.save
 puts 'Saved tool Oscilloscope module'
 
 tool = Tool.new( :name => 'Oscilloscope module',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 5,
                  :serial_id => 'B090306',
                  :description => '',
@@ -1957,7 +1957,7 @@ tool.save
 puts 'Saved tool Oscilloscope module'
 
 tool = Tool.new( :name => 'Oscilloscope module',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 5,
                  :serial_id => 'b088755',
                  :description => '',
@@ -1969,7 +1969,7 @@ tool.save
 puts 'Saved tool Oscilloscope module'
 
 tool = Tool.new( :name => 'Solder gun',
-                 :user_id => 17,
+                 :user_id => 16,
                  :tool_category_id => 5,
                  :serial_id => '0702',
                  :description => 'weller 140/100 watts ',
@@ -1982,7 +1982,7 @@ tool.save
 puts 'Saved tool Solder gun'
 
 tool = Tool.new( :name => 'Soldering Iron',
-                 :user_id => 17,
+                 :user_id => 16,
                  :tool_category_id => 40,
                  :serial_id => '',
                  :description => 'ColdHeat',
@@ -1994,7 +1994,7 @@ tool.save
 puts 'Saved tool Soldering Iron'
 
 tool = Tool.new( :name => 'Soldering Iron',
-                 :user_id => 17,
+                 :user_id => 16,
                  :tool_category_id => 5,
                  :serial_id => '0107',
                  :description => 'weller 40w',
@@ -2018,7 +2018,7 @@ tool.save
 puts 'Saved tool Nikon D3000'
 
 tool = Tool.new( :name => 'Electrical Engineering 101',
-                 :user_id => 19,
+                 :user_id => 18,
                  :tool_category_id => 40,
                  :serial_id => '',
                  :description => '',
@@ -2078,7 +2078,7 @@ tool.save
 puts 'Saved tool LoL Shield'
 
 tool = Tool.new( :name => 'Fluorescent Tubes',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 42,
                  :serial_id => 'none',
                  :description => 'T8 48"',
@@ -2090,7 +2090,7 @@ tool.save
 puts 'Saved tool Fluorescent Tubes'
 
 tool = Tool.new( :name => 'Fluorescent Tubes',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 42,
                  :serial_id => 'none',
                  :description => 'D2 96"',
@@ -2102,7 +2102,7 @@ tool.save
 puts 'Saved tool Fluorescent Tubes'
 
 tool = Tool.new( :name => 'Driver Set',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 6,
                  :serial_id => 'none',
                  :description => 'ifixit if145-022-1',
@@ -2114,7 +2114,7 @@ tool.save
 puts 'Saved tool Driver Set'
 
 tool = Tool.new( :name => 'Laminator',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 30,
                  :serial_id => 'SI-I61577H',
                  :description => 'Model #H-65 Product #1701987',
@@ -2126,7 +2126,7 @@ tool.save
 puts 'Saved tool Laminator'
 
 tool = Tool.new( :name => 'Toaster Oven',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 30,
                  :serial_id => '',
                  :description => 'Black & Decker',
@@ -2138,7 +2138,7 @@ tool.save
 puts 'Saved tool Toaster Oven'
 
 tool = Tool.new( :name => 'LED Flashlight',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 42,
                  :serial_id => 'none',
                  :description => 'Harbor Freight',
@@ -2150,7 +2150,7 @@ tool.save
 puts 'Saved tool LED Flashlight'
 
 tool = Tool.new( :name => 'Socket Wrench Set',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 6,
                  :serial_id => 'none',
                  :description => '',
@@ -2162,7 +2162,7 @@ tool.save
 puts 'Saved tool Socket Wrench Set'
 
 tool = Tool.new( :name => 'Socket Wrench Set',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 6,
                  :serial_id => 'none',
                  :description => 'US & metric',
@@ -2174,7 +2174,7 @@ tool.save
 puts 'Saved tool Socket Wrench Set'
 
 tool = Tool.new( :name => 'Multitool',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 6,
                  :serial_id => 'none',
                  :description => 'Husky',
@@ -2186,7 +2186,7 @@ tool.save
 puts 'Saved tool Multitool'
 
 tool = Tool.new( :name => 'Multitool',
-                 :user_id => 15,
+                 :user_id => 0,
                  :tool_category_id => 40,
                  :serial_id => 'none',
                  :description => 'Leatherman',
