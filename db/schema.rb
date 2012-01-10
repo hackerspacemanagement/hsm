@@ -10,7 +10,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20120121003113) do
+=======
+ActiveRecord::Schema.define(:version => 20120107073954) do
+>>>>>>> Add migration to add missing columns to the model
 
   create_table "permissions", :force => true do |t|
     t.string   "name"
@@ -72,6 +76,10 @@ ActiveRecord::Schema.define(:version => 20120121003113) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.string   "serial_id"
+    t.string   "notes"
+    t.boolean  "donatable"
+    t.string   "location"
+    t.string   "value"
   end
 
   create_table "user_roles", :force => true do |t|
