@@ -22,7 +22,10 @@
     %tbody
       - @tools.each do |tool|
         %tr
-          %td= image_tag tool.picture.url(:thumb)
+          - if !tool.picture
+            %td= image_tag tool.picture.url(:thumb)
+          -else
+            %td
           - if !tool.tool_category.nil?
             %td= tool.tool_category.name
           - else
@@ -31,7 +34,7 @@
           %td= tool.serial_id
           - if !@user
             - if !tool.user.nil?
-              %td= tool.user.full_name
+              %td= link_to tool.user.full_name, :action => 'index', :id => tool.user.id, :controller => 'tools'
             - else
               %td
           %td= tool.description
