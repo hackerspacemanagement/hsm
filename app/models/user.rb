@@ -30,6 +30,12 @@ class User < ActiveRecord::Base
   has_many :skills, :through => :users_skills
   has_many :tools
 
+  def has_permission?(perm)
+    permissions.each do |perm|
+        return true if perm.name == perm
+    end
+  end
+
   # Implements magic such as @user.is_an_admin_or_superhero?
   # and @user.can_fly?
   def method_missing(method_id, *args)
