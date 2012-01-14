@@ -31,9 +31,10 @@ class User < ActiveRecord::Base
   has_many :tools
 
   def has_permission?(perm)
-    permissions.each do |perm|
-        return true if perm.name == perm
+    permissions.each do |uperm|
+        return true if uperm.name == perm
     end
+    return false
   end
 
   # Implements magic such as @user.is_an_admin_or_superhero?
