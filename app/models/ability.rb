@@ -2,6 +2,25 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    user ||= User.new
+
+    if user.has_permission?('administrate')
+        can :manage, :all
+        return
+    end
+
+    user.permissions.each do |perm|
+        match = /^([a-zA-Z]\w+?)[_ ](?:(all)_)?([a-zA-Z]\w*)$/.match(perm).captures
+        verb = match.captures[0].to_sym
+        if match.captures[1] == "all"
+            noun = :all
+        else
+            noun = match.captures[2].to_sym
+        end
+        can verb, noun
+    end
+
+
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
