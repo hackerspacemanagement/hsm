@@ -17,7 +17,6 @@ namespace :db do
             end
             permission = Permission.new :name => permData[0],
                                         :description => permData[1]
-            permission.save rescue ActionView::Template::Error
             permission.save
             puts "Created permission #{ permission.name }"
         }
