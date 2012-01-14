@@ -12,6 +12,12 @@ class User < ActiveRecord::Base
   belongs_to :role
   delegate :permissions, :to => :role
 
+  before_validation(:on => :create) do
+    if not self.role
+        self.role = Role.where(:id => Settings.new_user_role).first
+    end
+  end
+
   def full_name
     "#{first_name} #{last_name}"
   end
