@@ -22,6 +22,8 @@
               = link_to current_user.email, '#', :class => 'dropdown-toggle'
               %ul.dropdown-menu
                 %li= link_to 'Account Settings', edit_user_registration_path
+                - if can? :read, :admin_panel
+                  %li= link_to 'Administration', admin_root_url
                 %li.divider
                 %li= link_to 'Logout', destroy_user_session_path
 
@@ -42,8 +44,5 @@
               = link_to 'x', '#', :class => 'close'
               %p= flash[:alert]
 
-        .span12
+        .span16
           = yield
-
-        .span4
-          = yield :sidebar
