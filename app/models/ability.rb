@@ -10,14 +10,18 @@ class Ability
     end
 
     user.permissions.each do |perm|
-        match = /^([a-zA-Z]\w+?)[_ ](?:(all)_)?([a-zA-Z]\w*)$/.match(perm).captures
-        verb = match.captures[0].to_sym
-        if match.captures[1] == "all"
-            noun = :all
+        match = /^([a-zA-Z]\w+?)[_ ](?:(all)_)?([a-zA-Z]\w*)$/.match(perm.name)
+        if match
+            verb = match.captures[0].to_sym
+            if match.captures[1] == "all"
+                noun = :all
+            else
+                noun = match.captures[2].to_sym
+            end
+            can verb, noun
         else
-            noun = match.captures[2].to_sym
+            can perm.name.to_sym, user
         end
-        can verb, noun
     end
 
 
