@@ -6,8 +6,8 @@ namespace :db do
         permissions = [
             ['login', 'Login'],
             ['administrate', 'Complete system access'],
-            ['access_admin_panel', 'Access administration panel'],
-            ['edit_other_user_skills', 'Edit other user skills']
+            ['read_admin_panel', 'Access administration panel'],
+            ['edit_all_user_skills', 'Edit all user\'s skills']
         ]
 
         permissions.each { |permData|
