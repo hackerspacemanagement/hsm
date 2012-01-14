@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
         end
         return false
     elsif match = matches_dynamic_perm_check?(method_id)
-        return true if can_administrate?
+        return true if has_permission?("administrate")
         return true if role and permissions.find_by_name(match.captures.first)
         return false
     else
