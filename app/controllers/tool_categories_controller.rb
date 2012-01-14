@@ -1,19 +1,19 @@
 class ToolCategoriesController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
-  
-  
+
+
   def index
     @categories = ToolCategory.all
   end
-  
+
   def new
     @category = ToolCategory.new
   end
-  
+
   def edit
     @category = ToolCategory.find(params[:id])
   end
-  
+
   def create
     @category = ToolCategory.new(params[:tool_category])
     if @category.save

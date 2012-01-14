@@ -2,7 +2,7 @@
 # fill_in_fields :user, :email => 'bob@smith.com'
 def fill_in_fields *args
   raise 'Too many arguments!' if args.size > 2
-  prefix = args.first.is_a?(Hash) ? '' : "#{ args.shift }_" 
+  prefix = args.first.is_a?(Hash) ? '' : "#{ args.shift }_"
   args.last.each { |field, value| fill_in "#{ prefix }#{ field }", :with => value }
 end
 

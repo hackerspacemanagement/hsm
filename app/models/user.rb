@@ -12,6 +12,12 @@ class User < ActiveRecord::Base
   belongs_to :role
   delegate :permissions, :to => :role
 
+  before_validation(:on => :create) do
+    if not self.role
+        self.role = Role.where(:id => Settings.new_user_role).first
+    end
+  end
+
   def full_name
     "#{first_name} #{last_name}"
   end
@@ -20,11 +26,8 @@ class User < ActiveRecord::Base
     hash = Digest::MD5.hexdigest(email.downcase.strip)
     "http://www.gravatar.com/avatar/#{hash}?s=#{size}"
   end
-  
-  # Are these #TODO or what? -re
-  # has_many :skills
-  # has_many :skill_levels
-  
+
+  has_many :skills, :through => :users_skills
   has_many :tools
 
   # Implements magic such as @user.is_an_admin_or_superhero?
@@ -32,11 +35,13 @@ class User < ActiveRecord::Base
   def method_missing(method_id, *args)
     if match = matches_dynamic_role_check?(method_id)
         tokenize_roles(match.captures.first).each do |check|
-            return true if role.name.downcase == check
+            return true if role and role.name.downcase == check
         end
         return false
     elsif match = matches_dynamic_perm_check?(method_id)
-        return true if is_an_administrator? or permissions.find_by_name(match.captures.first)
+        return true if is_an_administrator? 
+        return true if role and permissions.find_by_name(match.captures.first)
+        return false
     else
         super
     end
