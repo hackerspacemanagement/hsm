@@ -33,7 +33,7 @@ puts 'Setting up default usersdb/seeds.rb.'
 user = User.new :first_name            => 'Test',
                 :last_name             => 'User',
                 :email                 => 'user@example.com',
-               :password              => 'password',
+                :password              => 'password',
                 :password_confirmation => 'password',
                 :role                  => role
 
