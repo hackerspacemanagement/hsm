@@ -4,6 +4,7 @@ Hsm::Application.routes.draw do
     root :to => 'home#admin'
     resources :roles
     resources :users
+    resource :settings
   end
 
   devise_for :users

@@ -1,0 +1,14 @@
+.hero-unit
+  %h1 Settings
+  = form_for :settings do |f|
+    %table
+      %tbody
+        %tr
+          %td Hackerspace Name
+          %td
+            =f.text_field :group_name, :value => Settings.group_name
+        %tr
+          %td New User Role
+          %td
+            =f.select :new_user_role, @roles.collect {|r| [r.name, r.id]}, :selected => Settings.new_user_role
+    = f.submit
