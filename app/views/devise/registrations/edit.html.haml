@@ -22,6 +22,12 @@
         = f.label @user.role.name
 
     .clearfix
+      = f.label :permissions
+      %ul
+        - @user.permissions.each do |p|
+          %li= p.name
+
+    .clearfix
       = f.label :email
       .input
         = f.email_field :email
