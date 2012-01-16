@@ -22,7 +22,7 @@
     %tbody
       - @tools.each do |tool|
         %tr
-          - if !tool.picture
+          - if tool.picture
             %td= image_tag tool.picture.url(:thumb)
           -else
             %td
