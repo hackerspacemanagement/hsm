@@ -4,12 +4,10 @@
     .actions
         %clearfix
             .btn
-                = link_to 'Users', '/admin/users'
+                = link_to 'Users', admin_users_path()
             .btn
-                = link_to 'Roles', '/admin/roles'
+                = link_to 'Roles', admin_roles_path()
             .btn
                 = link_to 'Configuration', '/admin/configuration'
             .btn
-                = link_to 'Roles', '/admin/roles'
-            .btn
-                = link_to 'Tool Categories', '/tool_categories'
+                = link_to 'Tool Categories', tool_categories_path()
