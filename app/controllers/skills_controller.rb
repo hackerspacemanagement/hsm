@@ -1,4 +1,6 @@
 class SkillsController < ApplicationController
+    before_filter :authenticate_user!, :except => [:index, :show]
+  
     def index
         @skills = Skill.all
     end
