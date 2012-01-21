@@ -31,9 +31,11 @@ class User < ActiveRecord::Base
   has_many :tools
 
   def has_permission?(perm)
-    role.permissions.each do |uperm|
+    if not role.nil?
+      role.permissions.each do |uperm|
         return true if uperm.name == perm
-    end
+      end
+    end  
     return false
   end
   

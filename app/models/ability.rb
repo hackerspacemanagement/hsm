@@ -9,19 +9,21 @@ class Ability
         return
     end
 
-    user.role.permissions.each do |perm|
-        match = /^([a-zA-Z]\w+?)[_ ](?:(all)_)?([a-zA-Z]\w*)$/.match(perm.name)
-        if match
-            verb = match.captures[0].to_sym
-            if match.captures[1] == "all"
-                noun = :all
-            else
-                noun = match.captures[2].to_sym
-            end
-            can verb, noun
-        else
-            can perm.name.to_sym, user
-        end
+    if user.role
+      user.role.permissions.each do |perm|
+          match = /^([a-zA-Z]\w+?)[_ ](?:(all)_)?([a-zA-Z]\w*)$/.match(perm.name)
+          if match
+              verb = match.captures[0].to_sym
+              if match.captures[1] == "all"
+                  noun = :all
+              else
+                  noun = match.captures[2].to_sym
+              end
+              can verb, noun
+          else
+              can perm.name.to_sym, user
+          end
+      end
     end
 
 
