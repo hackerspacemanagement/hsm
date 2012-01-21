@@ -25,8 +25,6 @@ role = Role.new :name => 'User',
 role.save
 puts "Role: #{ role.name } created!"
 
-Settings.new_user_role = role.id
-
 puts 'Setting up default usersdb/seeds.rb.'
 user = User.new :first_name            => 'Test',
                 :last_name             => 'User',
