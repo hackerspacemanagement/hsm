@@ -5,6 +5,11 @@ describe User do
   before do
     @user = Factory.create :user
   end
+  
+  it 'has a role' do
+      @user.role.should be
+      @user.role.name.should == 'User'
+  end
 
   describe '#full_name' do
 

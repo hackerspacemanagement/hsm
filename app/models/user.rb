@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name
   validates_presence_of :last_name
 
-  belongs_to :role
-  delegate :permissions, :to => :role
+  has_one :user_role
+  has_one :role, :through => :user_role
 
   before_validation(:on => :create) do
     if not self.role
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   end
 
   def full_name
-    "#{first_name} #{last_name}"
+      first_name + last_name
   end
 
   def gravatar_url size=80
@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   has_many :tools
 
   def has_permission?(perm)
-    permissions.each do |uperm|
+    role.permissions.each do |uperm|
         return true if uperm.name == perm
     end
     return false
