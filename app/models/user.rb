@@ -14,12 +14,12 @@ class User < ActiveRecord::Base
 
   before_validation(:on => :create) do
     if not self.role
-        self.role = Role.where(:id => Settings.new_user_role).first
+        self.role = Role.where(:name => "User").first
     end
   end
 
   def full_name
-      first_name + last_name
+      first_name + " " + last_name
   end
 
   def gravatar_url size=80
@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
     end
     return false
   end
-
+  
   # Implements magic such as @user.is_an_admin_or_superhero?
   # and @user.can_fly?
   def method_missing(method_id, *args)
