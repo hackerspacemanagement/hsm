@@ -26,6 +26,8 @@
           %clearfix
             = f.submit "Sign in", :class => 'btn primary'
             = link_to 'Cancel', root_url, :class => 'btn'
+          %clearfix
+            = link_to 'Forgot my Password', new_user_password_path, :class => 'btn'
 
 - content_for :sidebar do
   .page-header
