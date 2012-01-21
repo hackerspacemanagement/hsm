@@ -3,6 +3,7 @@ require 'spec_helper'
 describe User do
 
   before do
+    @role = Factory.create :role, :name => "User"
     @user = Factory.create :user
   end
   
