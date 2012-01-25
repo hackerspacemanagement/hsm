@@ -67,11 +67,30 @@ describe UsersSkill do
         end
         
         it "should allow admin to add any skill" do
+            current_user = @admin
             @uskill = Factory.create :users_skill, :skill => @restrictedSkill,
                                                    :user  => @regularuser,
                                                    :proficiency => 5
             
             @regularuser.skills.should have(1).skill
+        end
+        
+        it "should not allow regular users to add restricted skills to themselves" do
+            current_user = @regularuser
+            @uskill = Factory.create :users_skill, :skill => @restrictedSkill,
+                                                   :user  => @regularuser,
+                                                   :proficiency => 5
+                                                   
+            @regularuser.skills.should have(0).skill
+        end
+        
+        it "should not allow regular users to add restricted skills to anyone else" do
+            current_user = @regularuser
+            @uskill = Factory.create :users_skill, :skill => @restrictedSkill,
+                                                   :user  => @admin,
+                                                   :proficiency => 5
+            
+            @admin.skills.should have(0).skill
         end
     end
 end
