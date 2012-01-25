@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   end 
   
   def can_manage_all?
-     if current_user and current_user.can? :manage, :roles
+     if current_user and can? :manage, :roles
       return
     end
     flash[:alert] = "You aren't authorized to view this!"
