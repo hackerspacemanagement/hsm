@@ -1,4 +1,5 @@
-<h2>Edit <%= resource.full_name %></h2>
+<div class="hero-unit">
+<h2>Editing <%= resource.full_name %></h2>
   
 <%= image_tag resource.gravatar_url %>
 
@@ -27,7 +28,7 @@
   
   <p>
     <%- # Ugly hack to make the role and label line up %>
-    <%= f.label :role, "Role: ", :style => "padding-top:0px"%>&nbsp;
+    <%= f.label :role, "Role: "%>&nbsp;
     <%= resource.role.name %>
   </p>
 
