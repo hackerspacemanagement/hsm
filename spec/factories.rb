@@ -11,11 +11,17 @@ FactoryGirl.define do
   factory :role do
   end
   
+  factory :skill do
+  end
+  
   factory :tool do
       name                  'Tool'
   end
   
   factory :tool_category do
+  end
+  
+  factory :users_skill do
   end
 
 end
