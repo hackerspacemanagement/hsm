@@ -127,9 +127,11 @@ describe 'Managing Users' do
     it 'user can remove account', :js => true do
       visit edit_user_registration_path(@user)
       click_link 'Delete my account!'
+      
+      alert = page.driver.browser.switch_to.alert
+      alert.text.should == "Are you sure?"
 
-      page.should have_content('Are you sure you want to remove your account?')
-      within('#delete-account-modal') { click_link('Delete my account!') }
+      alert.accept
 
       should_be_on root_path
       page.should have_content('Bye! Your account was successfully cancelled. We hope to see you again soon.')
