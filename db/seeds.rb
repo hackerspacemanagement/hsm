@@ -25,8 +25,6 @@ role = Role.new :name => 'User',
 role.save
 puts "Role: #{ role.name } created!"
 
-Settings.new_user_role = role.id
-
 puts 'Setting up default usersdb/seeds.rb.'
 user = User.new :first_name            => 'Test',
                 :last_name             => 'User',
@@ -39,12 +37,3 @@ user.save
 user.confirm!
 
 puts "User: #{ user.full_name } - #{ user.email } created and confirmed!"
-
-puts "Setting up default skills"
-skill = Skill.new :name                => 'HSM Hacking',
-                  :description         => 'Hacking on the Hackerspace Management Application',
-                  :more_info_url       => 'http://github.com/rrix/hsm'
-
-skill.save
-
-puts "Skill: #{ skill.name } created!"

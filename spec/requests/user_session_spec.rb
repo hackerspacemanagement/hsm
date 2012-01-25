@@ -2,6 +2,11 @@ require 'spec_helper'
 
 describe User do
 
+    
+  before do
+      @role = Factory.create :role, :name => "User"
+  end
+    
   describe 'logging in' do
 
     before do

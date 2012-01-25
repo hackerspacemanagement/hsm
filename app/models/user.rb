@@ -9,17 +9,17 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name
   validates_presence_of :last_name
 
-  belongs_to :role
-  delegate :permissions, :to => :role
+  has_one :user_role
+  has_one :role, :through => :user_role
 
   before_validation(:on => :create) do
     if not self.role
-        self.role = Role.where(:id => Settings.new_user_role).first
+        self.role = Role.where(:name => "User").first
     end
   end
 
   def full_name
-    "#{first_name} #{last_name}"
+      first_name + " " + last_name
   end
 
   def gravatar_url size=80
@@ -31,12 +31,14 @@ class User < ActiveRecord::Base
   has_many :tools
 
   def has_permission?(perm)
-    permissions.each do |uperm|
+    if not role.nil?
+      role.permissions.each do |uperm|
         return true if uperm.name == perm
-    end
+      end
+    end  
     return false
   end
-
+  
   # Implements magic such as @user.is_an_admin_or_superhero?
   # and @user.can_fly?
   def method_missing(method_id, *args)

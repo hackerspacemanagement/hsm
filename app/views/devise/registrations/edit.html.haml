@@ -24,7 +24,7 @@
     .clearfix
       = f.label :permissions
       %ul
-        - @user.permissions.each do |p|
+        - @user.role.permissions.each do |p|
           %li= p.name
 
     .clearfix

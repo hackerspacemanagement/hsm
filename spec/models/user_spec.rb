@@ -3,7 +3,13 @@ require 'spec_helper'
 describe User do
 
   before do
+    @role = Factory.create :role, :name => "User"
     @user = Factory.create :user
+  end
+  
+  it 'has a role' do
+      @user.role.should be
+      @user.role.name.should == 'User'
   end
 
   describe '#full_name' do

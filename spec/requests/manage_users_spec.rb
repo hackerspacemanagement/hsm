@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe 'Managing Users' do
 
+  before do
+      @role = Factory.create :role, :name => "User"
+  end
+  
   describe 'User sign up' do
 
     it 'has a link to sign up' do
@@ -58,7 +62,9 @@ describe 'Managing Users' do
   describe 'editing account info' do
 
     before do
-      @user = Factory.create :user
+      @user = Factory.create :user, :first_name => 'Phillip',
+                                    :last_name  => 'Fry',
+                                    :role => @role
 
       login_as @user
     end
