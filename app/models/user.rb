@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
     "http://www.gravatar.com/avatar/#{hash}?s=#{size}"
   end
 
+  has_many :users_skills
   has_many :skills, :through => :users_skills
   has_many :tools
 
