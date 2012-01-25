@@ -126,7 +126,6 @@ describe 'Managing Users' do
 
     it 'user can remove account', :js => true do
       visit edit_user_registration_path(@user)
-      debugger
       click_link 'Delete my account!'
 
       page.should have_content('Are you sure you want to remove your account?')
