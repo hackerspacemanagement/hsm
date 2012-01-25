@@ -208,8 +208,6 @@ DEPENDENCIES
   dynamic_form
   factory_girl_rails
   faker
-  haml (>= 3.0.0)
-  haml-rails
   heroku
   jquery-rails
   launchy

@@ -1,0 +1,8 @@
+<div class="hero-unit">
+  <%= image_tag 'logo.png', :class => 'pull-right' %>
+  <h1><%= Settings.group_name %></h1>
+  <h2>Tool Completed</h2>
+  <p><%= c.name %></p>
+  <p><%= c.description %></p>
+  <p><%= link_to "Add a tool category", :controller => "tool_categories", :action => "index" %></p>
+</div>

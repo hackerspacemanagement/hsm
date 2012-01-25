@@ -1,0 +1,12 @@
+<%= form_for @role do |r| %>
+  <p>
+  <%= r.label "Name: " %>
+  <%= r.text_field :name %>
+  </p>
+  <p>
+  <%= r.label "Description: " %>
+  <%= r.text_area :description %>
+  </p>
+
+  <%= r.submit %>
+<% end %>

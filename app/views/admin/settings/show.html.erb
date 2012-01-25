@@ -1,0 +1,18 @@
+<div class="hero-unit">
+  <h1>Settings</h1>
+  <%= form_for :settings do |f| %>
+    <table>
+      <tbody>
+        <tr>
+          <td>Hackerspace Name</td>
+          <td><%= f.text_field :group_name, :value => Settings.group_name %></td>
+        </tr>
+        <tr>
+          <td>New User Role</td>
+          <td><%= f.select :new_user_role, @roles.collect {|r| [r.name, r.id]}, :selected => Settings.new_user_role %></td>
+        </tr>
+      </tbody>
+    </table>
+    <%= f.submit %>
+  <% end %>
+</div>

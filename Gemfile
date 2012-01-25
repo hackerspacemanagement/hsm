@@ -3,8 +3,6 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.3'
 
 gem 'devise'
-gem 'haml', '>= 3.0.0'
-gem 'haml-rails'
 gem 'jquery-rails'
 gem 'dynamic_form'
 gem 'rack-ssl-enforcer'
