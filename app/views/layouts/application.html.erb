@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= Settings.group_name %> - Hackerspace Management</title>
+  <%= stylesheet_link_tag     "application" %>
+  <%= javascript_include_tag  "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="container-fluid">
+        <%= link_to "#{Settings.group_name} - Hackerspace Management", root_url, :class => 'brand' %>
+        <ul class="nav"><ul>
+        <ul class="nav secondary-nav">
+        <% if user_signed_in? %>
+          <li class="dropdown">
+            <%= link_to current_user.email, '#', :class => 'dropdown-toggle' %>
+            <ul class="dropdown-menu">
+              <li><%= link_to 'Account Settings', edit_user_registration_path %></li>
+            <% if can? :read, :admin_panel %>
+              <li><%= link_to 'Administration', admin_root_url %></li>
+            <% end %>
+              <li class="divider"></li>
+              <li><%= link_to 'Logout', destroy_user_session_path %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to 'Login', new_user_session_path %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="content">
+      <div class="row">
+        <div class="span16">
+          <% if flash[:notice] %>
+            <div class="alert-message success fade">
+              <%= link_to 'x', '#', :class => 'close' %>
+              <p><%= flash[:notice] %></p>
+            </div>
+          <% end %>
+          <% if flash[:alert] %>
+            <div class="alert-message error fade in">
+              <%= link_to 'x', '#', :class => 'close' %>
+              <p><%= flash[:alert] %></p>
+            </div>
+          <% end %>
+        </div>
+        <div class="span16">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

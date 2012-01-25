@@ -1,0 +1,34 @@
+<div class="hero-unit">
+  <h1>Users</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Members</th>
+        <th>Permissions</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @roles.each do |r| %>
+        <tr>
+          <td><%= r.name %></td>
+          <td><%= r.description %></td>
+          <td><%= r.users.length %></td>
+          <td>
+            <ul>
+              <% r.permissions do |p| %>
+                <li><%= p.name %></li>
+              <% end %>
+            </ul>
+          </td>
+          <td>
+            <div class="btn"><%= link_to 'Edit', :controller => "roles", :action => "edit", :id => r.id %></div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

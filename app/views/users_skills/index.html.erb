@@ -1,0 +1,40 @@
+<div class="hero-unit">
+  <%= image_tag 'logo.png', :class => 'pull-right' %>
+  <h1><%= Settings.group_name %>
+
+  <% if !@user %>
+  <h2>Users Skills</h2>
+  <% else %>
+  <h2><%= @user.full_name + "'s Skills" %></h2>
+  <% end %>
+
+  <p><%= link_to "Add a skill to your repertoire", :controller => "users_skills", :action => "new" %>
+
+  <table>
+    <thead>
+      <td><%= sort_link "Name", :name %></td>
+      <td><%= sort_link "Proficiency", :proficiency %></td>
+      <% if !@user %>
+      <td><%= sort_link "Owner", :suesr_id %></td>
+      <% end %>
+      <td><%= sort_link "Description", :description %></td>
+    </thead>
+    <tbody>
+      <% @uskills.each do |user_skill| %>
+      <% skill = Skill.find(user_skill.skill_id) %>
+      <tr>
+        <td><%= link_to skill.name, skill.path(skill.id) %></td>
+        <td><%= user%></td>
+        <% if !@user %>
+        <% if !user_skill.user.nil? %>
+        <td><%= user_skill.user.full_name %></td>
+        <% else %>
+        <td></td>
+        <% end %>
+        <% end %>
+        <td><%= skill.description %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
