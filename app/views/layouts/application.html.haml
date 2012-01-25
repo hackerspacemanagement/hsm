@@ -44,5 +44,8 @@
               = link_to 'x', '#', :class => 'close'
               %p= flash[:alert]
 
-        .span16
+        .span12
           = yield
+          
+        .span4
+          = yield :sidebar
