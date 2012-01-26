@@ -2,18 +2,36 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.3'
 
+# Authentication
 gem 'devise'
+
+# Authorization
+gem 'cancan'
+
 gem 'jquery-rails'
-gem 'dynamic_form'
-gem 'rack-ssl-enforcer'
 gem 'rails-settings-cached', :require => 'rails-settings'
 gem "paperclip", "~> 2.4"
-gem 'cancan'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
+  gem 'coffee-rails', "~> 3.1.0"
+  gem 'uglifier'
+  gem 'compass', "~> 0.12.alpha.0"
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'shoulda'
+end
+
+group :development do
+  gem 'sqlite3'
 end
 
 group :production, :staging do#, :ci do
@@ -21,22 +39,3 @@ group :production, :staging do#, :ci do
   gem 'thin'
 end
 
-group :development, :test do
-  gem 'sqlite3'
-  gem 'capybara'
-  gem 'rspec-rails'
-  gem 'ruby-debug19', :require => 'ruby-debug' if RUBY_VERSION >= "1.9"
-  gem 'cover_me' if RUBY_VERSION >= "1.9"
-  gem 'faker'
-  gem 'wirble'
-end
-
-group :development do
-  gem 'heroku'
-end
-
-group :test do
-  gem 'factory_girl_rails'
-  gem 'launchy'
-  gem 'database_cleaner'
-end
