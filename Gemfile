@@ -21,17 +21,21 @@ group :assets do
   gem 'compass', "~> 0.12.alpha.0"
 end
 
-group :development, :test do
+group :development do
+  gem 'sqlite3'
+  gem 'guard-rspec'
+  gem 'guard-livereload'
+  gem 'pry'
+  gem 'pry-doc'
+end
+
+group :test do
   gem 'rspec-rails'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'launchy'
   gem 'shoulda'
-end
-
-group :development do
-  gem 'sqlite3'
 end
 
 group :production, :staging do#, :ci do
