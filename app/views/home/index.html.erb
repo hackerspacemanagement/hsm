@@ -6,7 +6,7 @@
   <p>Hackerspace Management</p>
   <%- unless user_signed_in? %>
     <br/>
-    <p><%= link_to 'Login', new_user_session_path %> or <%= link_to 'sign_up', new_user_registration_path %> to get started!</p>
+    <p><%= link_to 'Login', new_user_session_path %> or <%= link_to 'Sign up', new_user_registration_path %> to get started!</p>
   <% end %>
   <% if user_signed_in? %>
     <div class="clearfix">
