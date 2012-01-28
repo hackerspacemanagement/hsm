@@ -23,8 +23,8 @@
       <% @uskills.each do |user_skill| %>
       <% skill = Skill.find(user_skill.skill_id) %>
       <tr>
-        <td><%= link_to skill.name, skill.path(skill.id) %></td>
-        <td><%= user%></td>
+        <td><%= link_to skill.name, skill_path(skill.id) %></td>
+        <td><%= user_skill.proficiency %></td>
         <% if !@user %>
         <% if !user_skill.user.nil? %>
         <td><%= user_skill.user.full_name %></td>
