@@ -12,8 +12,8 @@
   <%= s.text_field :more_info_url %>
   </p>
   <p>
-  <%= s.label "Role require to grant permission: " %>
-  <%= s.select :role_require_to_grant, options_for_select(@roles, @roles.last[1]) %>
+  <%= s.label "Role required to grant permission: " %>
+  <%= s.select :role_required_to_grant, options_for_select(@roles, @roles.last[1]) %>
   </p>
 
   <%= s.submit %>
