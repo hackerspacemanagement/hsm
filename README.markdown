@@ -1,7 +1,7 @@
-Heatsync Labs - Hackerspace Management
+Hackerspace Management
 =========
 
-This code is based on Rails 3.1.0
+This code is based on Rails 3.1.3
 
 Prerequisites
 -------------
@@ -9,14 +9,14 @@ Prerequisites
 
 Production Environment
 ----------------------
-    $ git clone git@github.com:bowerman/hsm.git
+    $ git clone git@github.com:rrix/hsm.git
     $ cd hsm
     $ bundle install
     $ rake db:seed
 
 Development / Test Environment
 ------------------------------
-    $ git clone git@github.com:bowerman/hsm.git
+    $ git clone git@github.com:rrix/hsm.git
     $ cd hsm
     $ bundle install --without production staging ci
     $ rake db:seed
@@ -29,8 +29,4 @@ Tests are written using factory girl, rspec, and capybara. Factories are located
 To run the test suite:
 
     $ bundle exec rspec spec/
-
-To get code coverage (and run the test suite as well)
-
-    $ rake cover_me:all
 
