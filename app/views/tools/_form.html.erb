@@ -5,7 +5,8 @@
   </p>
   <p>
   <%= t.label "Category: " %>
-  <%= t.select :tool_category_id, @categories %>
+  <%= t.select :tool_category_id, @categories %>&nbsp;
+  <%= link_to "Add new Category", new_tool_category_path %>
   </p>
   <p>
   <%= t.label "Serial Number or ID: "%>
