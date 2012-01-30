@@ -33,10 +33,6 @@ describe 'Tool' do
     end
     
     it 'should be able to remove a new tool' do
-      @tool = Tool.find_by_name("Test tool")
-      Tool.delete(@tool)
-      
-      Tool.count.should == 0
     end
   end
   
