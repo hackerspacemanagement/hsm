@@ -3,27 +3,25 @@ class ToolsController < ApplicationController
 
   def index
     if params[:id]
-      @user = User.find(params[:id])
-      @tools = @user.tools
+      @user       = User.find(params[:id])
+      @tools      = @user.tools
       @user_tools = true
     else
-      @tools = Tool.all
+      @tools      = Tool.all
       @user_tools = nil
     end
   end
 
   def new
-    @tool = Tool.new
-    # This violates DRY. -rr
-    @users = User.all.collect { |p| [p.full_name, p.id]} << [Settings.group_name, ""]
-    @categories = ToolCategory.all.collect {|p| [ p.name, p.id ] }
+    @tool       = Tool.new
+    @users      = users 
+    @categories = categories
   end
 
   def edit
-    @tool = Tool.find(params[:id])
-    # This violates DRY. -rr
-    @users = User.all.collect { |p| [p.full_name, p.id]} << [Settings.group_name, ""]
-    @categories = ToolCategory.all.collect {|p| [ p.name, p.id ] }
+    @tool       = Tool.find(params[:id])
+    @users      = users 
+    @categories = categories
   end
 
   def create
@@ -48,5 +46,15 @@ class ToolsController < ApplicationController
       redirect_to edit_tool_path(@tool)
     end
   end
+  
+  private
+  
+  def users
+    User.all.collect { |p| [p.full_name, p.id]} << [Settings.group_name, ""]
+  end
+  
+  def categories
+    ToolCategory.all.collect {|p| [ p.name, p.id ] }
+  end 
 
 end
