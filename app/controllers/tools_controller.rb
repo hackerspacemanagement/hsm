@@ -47,6 +47,21 @@ class ToolsController < ApplicationController
     end
   end
   
+  def destroy
+    if tool = Tool.find(params[:id])
+      name = tool.name
+      if tool.destroy
+        flash[:notice] = "You've deleted the #{name}."
+        redirect_to tools_path
+      else
+        flash[:alert] = "Whoops, something bad happened!"
+        redirect_to edit_tool_path(tool)
+      end
+    else
+      flash[:alert] = "Could not find tool with id #{ params[:id] }."
+    end
+  end
+  
   private
   
   def users

@@ -3,4 +3,9 @@
   <h2>Edit a Tool</h2>
 
   <%= render 'form' %>
+  
+  <%= link_to "Delete this Object", {:controller => "tools", :action => :destroy}, 
+                                     :method => :delete, 
+                                     :class => 'btn'
+                                    %>
 </div>
