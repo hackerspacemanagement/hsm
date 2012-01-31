@@ -21,6 +21,7 @@
         <td><%= sort_link "Owner", :user_id %></td>
       <% end %>
       <td><%= sort_link "Description", :description %></td>
+      <td>Actions</td>
     </thead>
     <tbody>
       <% @tools.each do |tool| %>
@@ -45,6 +46,13 @@
             <% end %>
           <% end %>
           <td><%= tool.description %></td>
+          <td>
+            <div class="actions">
+              <div class="btn">
+                <%= link_to 'Edit', edit_tool_path(tool) %>
+              </div>
+            </div>
+          </td>
         </tr>
       <% end %>
     </tbody>
