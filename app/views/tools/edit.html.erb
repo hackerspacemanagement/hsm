@@ -4,8 +4,9 @@
 
   <%= render 'form' %>
   
-  <%= link_to "Delete this Object", {:controller => "tools", :action => :destroy}, 
-                                     :method => :delete, 
-                                     :class => 'btn'
-                                    %>
+  <%= link_to "Delete this tool", tool_path, 
+                                  :method => :delete, 
+                                  :class => 'btn', 
+                                  :confirm => "Are you sure?" 
+                                 %>
 </div>
