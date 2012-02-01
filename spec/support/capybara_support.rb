@@ -30,3 +30,22 @@ end
 def dom_id obj
   "#{ obj.class.model_name.underscore }_#{ obj.id }".downcase
 end
+
+def sample_file(filename = "sample_file.png")
+  File.new("spec/support/fixtures/#{filename}")
+end
+
+def create_admin 
+  if @role = Role.find_by_name('administrator')
+    Factory :user, :role => @role
+  else
+    @perms = Factory :permission, :name => 'administrate'
+    @role = Factory :role, :name => 'administrator',
+                           :permissions => [@perms]
+    
+    Factory :user, :role       => @role,
+                   :email      => "admin@example.com",
+                   :first_name => "Admin",
+                   :last_name  => "User"
+  end
+end
