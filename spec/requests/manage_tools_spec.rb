@@ -48,11 +48,46 @@ describe 'Tool' do
       
       click_button "Create Tool"
     end
+  end
+  
+  describe "deleting tools" do
+    before do
+      @tool = Factory :tool, :name => "Test Tool"
+      @tool.save
+    end
     
-    it 'should be able to remove a new tool' do
+    it 'should have a link to remove the tool' do
       visit tools_path
       
-      pending "This needs to be written"
+      page.should have_css "a[href='#{ edit_tool_path(@tool) }']"
+    end
+    
+    it 'should be able to delete tools', :js => true do
+      visit edit_tool_path(@tool)
+      
+      page.should have_css "a[href='#{ tool_path(@tool) }']"
+      click_link "Delete this tool"
+      
+      alert = page.driver.browser.switch_to.alert
+      alert.text.should == "Are you sure?"
+
+      alert.accept
+    end
+    
+    it "should not allow users to delete tools that they don't own", :js => true do
+      @owner_user = Factory :user, :email => "me@example.com"
+      @tool.user  = @owner_user
+      @tool.save
+      
+      visit edit_tool_path(@tool)
+      click_link "Delete this tool"
+      
+      alert = page.driver.browser.switch_to.alert
+      alert.text.should == "Are you sure?"
+
+      alert.accept
+      
+      page.should have_content "You are not allowed to delete tools you don't own"
     end
   end
   
