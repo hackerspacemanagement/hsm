@@ -2,15 +2,14 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.3'
 
-# Authentication
-gem 'devise'
-
-# Authorization
 gem 'cancan'
-
+gem 'devise'
+gem 'dynamic_form'
 gem 'jquery-rails'
+gem 'paperclip', "~> 2.4"
+gem 'pg'
+gem 'rack-ssl-enforcer'
 gem 'rails-settings-cached', :require => 'rails-settings'
-gem "paperclip", "~> 2.4"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -19,12 +18,15 @@ group :assets do
 end
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'rspec-rails'
   gem 'guard-rspec'
   gem 'guard-livereload'
   gem 'pry'
   gem 'pry-doc'
+end
+
+group :production, :staging do#, :ci do
+  gem 'thin'
 end
 
 group :test do
@@ -36,7 +38,6 @@ group :test do
 end
 
 group :production, :staging do#, :ci do
-  gem 'pg'
   gem 'thin'
 end
 
