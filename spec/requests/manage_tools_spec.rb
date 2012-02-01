@@ -5,6 +5,9 @@ describe 'Tool' do
     # Create some initial Tool categories
     @user          = Factory.create :user
     login_as @user
+    
+    @admin = create_admin
+    @admin.save!
   end
   
   describe 'Adding and Removing Tools' do
@@ -97,7 +100,8 @@ describe 'Tool' do
   
   describe 'Editing tools' do
     before do
-      @tool_category = Factory :tool_category, :name => "Test Category"
+      @tool_category1 = Factory :tool_category, :name => "Test Category 1"
+      @tool_category2 = Factory :tool_category, :name => "Test Category 2"
       
       @tool          = Factory :tool, :name          => "Test tool",
                                       :user          => @user,
@@ -114,26 +118,79 @@ describe 'Tool' do
     
     it 'should be able to edit existing tool\'s :name' do
       visit edit_tool_path(@tool)
+      fill_in_fields :tool_name => "test tool"
+      
+      click_button "Update Tool"
+      
+      page.should have_content "Your changes have been saved, good sir or madam."
     end
     
     it 'should be able to edit existing tool\'s :tool_category' do
       visit edit_tool_path(@tool)
+      
+      page.select("Test Category 2", :from => "tool_tool_category_id")
+      
+      click_button "Update Tool"
+      
+      page.should have_content "Your changes have been saved, good sir or madam."
     end
     
     it 'should be able to edit existing tool\'s :serial_id' do
       visit edit_tool_path(@tool)
+      fill_in_fields :tool_serial_id => "1234567890XY"
+      
+      click_button "Update Tool"
+      
+      page.should have_content "Your changes have been saved, good sir or madam."
     end
     
     it 'should be able to edit existing tool\'s :description' do
       visit edit_tool_path(@tool)
+      fill_in_fields :tool_description => "This Tool is a Test"
+      
+      click_button "Update Tool"
+      
+      page.should have_content "Your changes have been saved, good sir or madam."
     end
     
     it 'should be able to edit existing tool\'s :picture' do
-      visit edit_tool_path(@tool)
+      pending "This needs to be written still"
+#       visit edit_tool_path(@tool)
+#       fill_in_fields :name => "This Tool is a Test"
+#       
+#       click_button "Update Tool"
+#       
+#       page.should have_content "Your changes have been saved, good sir or madam."
     end
     
-    it 'should be able to edit existing tool\'s :user' do
-      visit edit_tool_path(@tool)
+    context 'user is admin' do
+      it 'should be able to edit existing tool\'s :user' do
+        login_as @admin
+        visit edit_tool_path(@tool)
+        
+        page.select( @user.full_name, :from => "tool_user_id" )
+        
+        click_button "Update Tool"
+        
+        page.should have_content "Your changes have been saved, good sir or madam."
+      end
+    end
+    
+    context 'user is not an admin' do
+      it 'should not be able to edit existing tool\'s :user' do
+        # Make the tool not owned by User.
+        @tool.user = @admin
+        @tool.save!
+        
+        login_as @user
+        visit edit_tool_path(@tool)
+        
+        page.select( @admin.full_name, :from => "tool_user_id" )
+        
+        click_button "Update Tool"
+        
+        page.should have_content "You are not allowed to delete tools you don't own"
+      end
     end
   end
 end

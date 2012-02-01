@@ -38,11 +38,16 @@ class ToolsController < ApplicationController
 
   def update
     @tool = Tool.find(params[:id])
-    if @tool.update_attributes(params[:tool])
-      flash[:notice] = "Your changes have been saved, good sir or madam."
-      redirect_to tools_path
+    if current_user.can_administrate? or current_user == @tool.user
+      if @tool.update_attributes(params[:tool])
+        flash[:notice] = "Your changes have been saved, good sir or madam."
+        redirect_to tools_path
+      else
+        flash[:alert] = "Whoops, something bad happened!"
+        redirect_to edit_tool_path(@tool)
+      end
     else
-      flash[:alert] = "Whoops, something bad happened!"
+      flash[:alert] = "You are not allowed to delete tools you don't own."
       redirect_to edit_tool_path(@tool)
     end
   end
