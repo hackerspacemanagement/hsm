@@ -13,16 +13,11 @@ RSpec.configure do |config|
   config.mock_with :rspec
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
-  config.use_transactional_fixtures = false
   config.include Capybara::DSL
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
-  end
-
-  config.before(:each) do
-    DatabaseCleaner.start
+    DatabaseCleaner.orm = "mongoid"
   end
 
   config.after(:each) do
