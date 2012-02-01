@@ -1,11 +1,6 @@
 FactoryGirl.define do
-
-  factory :user, :class => User do
-    first_name              'first_name'
-    last_name               'last_name'
-    email                   'first_name.last_name@example.com'
-    password                'password'
-    password_confirmation   'password'
+  
+  factory :permission do
   end
   
   factory :role do
@@ -19,6 +14,14 @@ FactoryGirl.define do
   end
   
   factory :tool_category do
+  end
+  
+  factory :user, :class => User do
+    first_name              'first_name'
+    last_name               'last_name'
+    email                   'first_name.last_name@example.com'
+    password                'password'
+    password_confirmation   'password'
   end
   
   factory :users_skill do
