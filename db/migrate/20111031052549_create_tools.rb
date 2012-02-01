@@ -6,6 +6,7 @@ class CreateTools < ActiveRecord::Migration
       t.string :description
       t.date :date_added
       t.date :date_removed
+      t.integer :tool_category_id
 
       t.timestamps
     end
