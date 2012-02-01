@@ -56,16 +56,20 @@ describe 'Tool' do
       @tool.save
     end
     
-    it 'should have a link to remove the tool' do
+    it 'should have a link to edit the tool' do
       visit tools_path
       
       page.should have_css "a[href='#{ edit_tool_path(@tool) }']"
     end
     
+    it 'should have a link to delete the tool' do
+      visit edit_tool_path(@tool)
+      page.should have_css "a[href='#{ tool_path(@tool) }']"
+    end
+    
     it 'should be able to delete tools', :js => true do
       visit edit_tool_path(@tool)
       
-      page.should have_css "a[href='#{ tool_path(@tool) }']"
       click_link "Delete this tool"
       
       alert = page.driver.browser.switch_to.alert
@@ -99,10 +103,37 @@ describe 'Tool' do
                                       :user          => @user,
                                       :tool_category => @tool_category,
                                       :description   => "This is a test"
+      @tool.save!
     end
     
-    it 'should be able to edit existing tools' do
-      pending "This needs to be written"
+    it 'should have an edit button on the tools index' do
+      visit tools_path
+      
+      page.should have_css "a[href='#{ edit_tool_path(@tool) }']"
+    end
+    
+    it 'should be able to edit existing tool\'s :name' do
+      visit edit_tool_path(@tool)
+    end
+    
+    it 'should be able to edit existing tool\'s :tool_category' do
+      visit edit_tool_path(@tool)
+    end
+    
+    it 'should be able to edit existing tool\'s :serial_id' do
+      visit edit_tool_path(@tool)
+    end
+    
+    it 'should be able to edit existing tool\'s :description' do
+      visit edit_tool_path(@tool)
+    end
+    
+    it 'should be able to edit existing tool\'s :picture' do
+      visit edit_tool_path(@tool)
+    end
+    
+    it 'should be able to edit existing tool\'s :user' do
+      visit edit_tool_path(@tool)
     end
   end
 end
