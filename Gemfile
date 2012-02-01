@@ -2,13 +2,14 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.3'
 
+gem 'cancan'
 gem 'devise'
-gem 'jquery-rails'
 gem 'dynamic_form'
+gem 'jquery-rails'
+gem 'paperclip', "~> 2.4"
+gem 'pg'
 gem 'rack-ssl-enforcer'
 gem 'rails-settings-cached', :require => 'rails-settings'
-gem "paperclip", "~> 2.4"
-gem 'cancan'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -17,17 +18,15 @@ group :assets do
 end
 
 group :production, :staging do#, :ci do
-  gem 'pg'
   gem 'thin'
 end
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'capybara'
-  gem 'rspec-rails'
-  gem 'ruby-debug19', :require => 'ruby-debug' if RUBY_VERSION >= "1.9"
   gem 'cover_me' if RUBY_VERSION >= "1.9"
   gem 'faker'
+  gem 'rspec-rails'
+  gem 'ruby-debug19', :require => 'ruby-debug' if RUBY_VERSION >= "1.9"
   gem 'wirble'
 end
 
