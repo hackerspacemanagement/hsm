@@ -30,6 +30,7 @@ group :production, :staging do#, :ci do
 end
 
 group :test do
+  gem 'mongoid-rspec'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'capybara'
