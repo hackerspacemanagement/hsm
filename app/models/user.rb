@@ -1,6 +1,9 @@
 class User 
   include Mongoid::Document
 
+  # Include default devise modules
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+
   ## Database authenticatable
   field :email,              :type => String, :null => false
   field :encrypted_password, :type => String, :null => false
@@ -36,6 +39,9 @@ class User
   # Token authenticatable
   field :authentication_token, :type => String
   
-  attr_accessible :email, :encrypted_password
+  # Validations
+  validates_uniqueness_of :email, :case_sensitive => false
+
+  attr_accessible :email, :password, :password_confirmation, :remember_me
 
 end
