@@ -1,74 +1,41 @@
-class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :encryptable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+class User 
+  include Mongoid::Document
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :role
+  ## Database authenticatable
+  field :email,              :type => String, :null => false
+  field :encrypted_password, :type => String, :null => false
 
-  validates_presence_of :first_name
-  validates_presence_of :last_name
+  ## Recoverable
+  field :reset_password_token,   :type => String
+  field :reset_password_sent_at, :type => Time
 
-  has_one :user_role
-  has_one :role, :through => :user_role
+  ## Rememberable
+  field :remember_created_at, :type => Time
 
-  before_validation(:on => :create) do
-    if not self.role
-        self.role = Role.where(:name => "User").first
-    end
-  end
+  ## Trackable
+  field :sign_in_count,      :type => Integer
+  field :current_sign_in_at, :type => Time
+  field :last_sign_in_at,    :type => Time
+  field :current_sign_in_ip, :type => String
+  field :last_sign_in_ip,    :type => String
 
-  def full_name
-      first_name + " " + last_name
-  end
+  ## Encryptable
+  # field :password_salt, :type => String
 
-  def gravatar_url size=80
-    hash = Digest::MD5.hexdigest(email.downcase.strip)
-    "http://www.gravatar.com/avatar/#{hash}?s=#{size}"
-  end
+  ## Confirmable
+  field :confirmation_token,   :type => String
+  field :confirmed_at,         :type => Time
+  field :confirmation_sent_at, :type => Time
+  field :unconfirmed_email,    :type => String # Only if using reconfirmable
 
-  has_many :users_skills
-  has_many :skills, :through => :users_skills
-  has_many :tools
+  ## Lockable
+  # field :failed_attempts, :type => Integer # Only if lock strategy is :failed_attempts
+  # field :unlock_token,    :type => String # Only if unlock strategy is :email or :both
+  # field :locked_at,       :type => Time
 
-  def has_permission?(perm)
-    if not role.nil?
-      role.permissions.each do |uperm|
-        return true if uperm.name == perm
-      end
-    end  
-    return false
-  end
+  # Token authenticatable
+  field :authentication_token, :type => String
   
-  # Implements magic such as @user.is_an_admin_or_superhero?
-  # and @user.can_fly?
-  def method_missing(method_id, *args)
-    if match = matches_dynamic_role_check?(method_id)
-        tokenize_roles(match.captures.first).each do |check|
-            return true if role and role.name.downcase == check
-        end
-        return false
-    elsif match = matches_dynamic_perm_check?(method_id)
-        return true if has_permission?("administrate")
-        return true if role and permissions.find_by_name(match.captures.first)
-        return false
-    else
-        super
-    end
-  end
-
-  private
-
-  def matches_dynamic_perm_check?(method_id)
-    /^can_([a-zA-Z]\w*)\?$/.match(method_id.to_s)
-  end
-
-  def matches_dynamic_role_check?(method_id)
-    /^is_an?_([a-zA-Z]\w*)\?$/.match(method_id.to_s)
-  end
-
-  def tokenize_roles(string_to_split)
-    string_to_split.split(/_or_/)
-  end
+  attr_accessible :email, :encrypted_password
 
 end
