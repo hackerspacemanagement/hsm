@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= Settings.group_name %> - Hackerspace Management</title>
+  <title>Your Friendly Hackerspace - Hackerspace Management</title>
   <%= stylesheet_link_tag     "application" %>
   <%= javascript_include_tag  "application" %>
   <%= csrf_meta_tags %>
@@ -11,7 +11,7 @@
   <div class="topbar">
     <div class="topbar-inner">
       <div class="container-fluid">
-        <%= link_to "#{Settings.group_name} - Hackerspace Management", root_url, :class => 'brand' %>
+        <%= link_to "Your Friendly Hackerspace - Hackerspace Management", root_url, :class => 'brand' %>
         <ul class="nav"><ul>
         <ul class="nav secondary-nav">
         <% if user_signed_in? %>
@@ -19,9 +19,7 @@
             <%= link_to current_user.email, '#', :class => 'dropdown-toggle' %>
             <ul class="dropdown-menu">
               <li><%= link_to 'Account Settings', edit_user_registration_path %></li>
-            <% if can? :read, :admin_panel %>
               <li><%= link_to 'Administration', admin_root_url %></li>
-            <% end %>
               <li class="divider"></li>
               <li><%= link_to 'Logout', destroy_user_session_path %></li>
             </ul>
