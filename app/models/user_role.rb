@@ -1,4 +1,6 @@
-class UserRole < ActiveRecord::Base
+class UserRole
+  include Mongoid::Document
+
     belongs_to :role
     belongs_to :user
 end

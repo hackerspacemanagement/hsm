@@ -1,4 +1,6 @@
-class UsersSkill < ActiveRecord::Base
+class UsersSkill
+  include Mongoid::Document
+
   belongs_to :skill
   belongs_to :user
   
