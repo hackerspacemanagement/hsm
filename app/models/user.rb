@@ -1,5 +1,6 @@
 class User 
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   # Include default devise modules
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
@@ -40,8 +41,14 @@ class User
   field :authentication_token, :type => String
   
   # Validations
+  
   validates_uniqueness_of :email, :case_sensitive => false
 
   attr_accessible :email, :password, :password_confirmation, :remember_me
+
+  def gravatar_url size=80
+    hash = Digest::MD5.hexdigest(email.downcase.strip)
+    "http://www.gravatar.com/avatar/#{hash}?s=#{size}"
+  end
 
 end
