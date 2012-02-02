@@ -1,36 +1,52 @@
 require 'spec_helper'
 
-describe Tool, "name" do
-    before do
-        @category = Factory.create :tool_category, :name => "Category"
-    end
-    
-    it "returns the tool's name" do
-        tool = Factory.create :tool
-        tool.name = "Screwdriver"
-        tool.name.should == "Screwdriver"
-    end
-    
-    it "returns the tool's category" do
-        tool = Factory.create :tool
-        tool.tool_category = @category
-        tool.tool_category.name.should == "Category"
-    end
-    
-    it "returns the tool's description" do
-        tool = Factory.create :tool
-        tool.description = "This is a test"
-        tool.description.should == "This is a test"
-    end
-    
-    it "sets and returns the user" do
-        tool = Factory.create :tool
-        user = Factory.create :user
-        tool.user = user
-        tool.user.should
-        
-        tool.save # so that user gets the tool
-        
-        user.tools.should have(1).tool
-    end
+describe Tool do
+  
+  let!(:current_user) do
+    FactoryGirl.create(:user)
+  end
+
+  before(:each) do
+    @attr = FactoryGirl.attributes_for(:tool)
+  end
+
+  after do
+    Tool.delete_all
+  end
+
+  describe "attributes" do
+    it { should have_field(:name) }
+    it { should have_field(:identification_number) }
+    it { should have_field(:description) }
+    it { should have_field(:location) }
+
+    it { should have_field(:borrowed_by) }
+    it { should have_field(:borrowed_on).of_type(Date) }
+
+    it { should be_timestamped_document }
+  end
+
+  describe "validations" do
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:description) }
+  end
+
+  describe "associations" do
+    #it { should embed_many(:categories) }
+    #it { should embed_many(:attachments) }
+    #it { should embed_many(:images) }
+  end
+
+  describe "scopes" do
+  end
+
+  describe "methods" do
+  end
+
+  context "when attributes are valid" do
+    it "should create a new instance" do
+      Tool.create!(@attr)
+    end    
+  end
+
 end

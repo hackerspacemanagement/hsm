@@ -13,7 +13,10 @@ FactoryGirl.define do
   end
   
   factory :tool do
-      name                  'Tool'
+      name                  'Bench Grinder'
+      identification_number '35498 322010'
+      description           'Central Machinery 37822 (6" grinder)'
+      location              'Woodworking Bench'
   end
   
   factory :tool_category do
