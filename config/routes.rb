@@ -1,5 +1,7 @@
 Hsm::Application.routes.draw do
 
+  get "members/index"
+
   namespace :admin do
     root :to => 'home#admin'
     resources :roles
