@@ -98,8 +98,9 @@ describe 'Managing Users' do
 
         click_button 'Update'
 
-        page.should have_content 'error prohibited this user from being saved'
+        page.should have_content    'error prohibited this user from being saved'
         page.should have_no_content 'You updated your account successfully.'
+
         @user.reload.email.should_not == 'new_email@test.com'
       end
 
@@ -127,7 +128,7 @@ describe 'Managing Users' do
     it 'user can remove account', :js => true do
       visit edit_user_registration_path(@user)
       click_link 'Delete my account!'
-      
+
       alert = page.driver.browser.switch_to.alert
       alert.text.should == "Are you sure?"
 
