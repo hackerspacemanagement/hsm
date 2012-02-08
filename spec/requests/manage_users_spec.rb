@@ -27,7 +27,7 @@ describe 'Managing Users' do
         click_button 'Sign up'
 
         should_be_on root_path
-        page.should have_content 'You have signed up successfully. However, we could not sign you in because your account is unconfirmed.'
+        page.should have_content 'A message with a confirmation link has been sent to your email address. Please open the link to activate your account.'
         User.last.email.should == 'pfry@test.com'
       end
 
