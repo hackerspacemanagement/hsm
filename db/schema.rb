@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(:version => 20120121003113) do
   create_table "tools", :force => true do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.string   "description"
+    t.text     "description"
     t.date     "date_added"
     t.date     "date_removed"
     t.integer  "tool_category_id"

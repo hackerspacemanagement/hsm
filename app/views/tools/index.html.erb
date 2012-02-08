@@ -20,16 +20,16 @@
       <% if !@user %>
         <td><%= sort_link "Owner", :user_id %></td>
       <% end %>
-      <td><%= sort_link "Description", :description %></td>
       <td>Actions</td>
     </thead>
     <tbody>
       <% @tools.each do |tool| %>
+        <% tool.description and tool.description.length > 0 ? @rows = 2 : @rows = 1 %>
         <tr>
           <% if tool.picture %>
-            <td><%= image_tag tool.picture.url(:thumb) %></td>
+            <td rowspan=<%= @rows %>><%= image_tag tool.picture.url(:thumb) %></td>
           <% else %>
-            <td>&nbsp;</td>
+            <td rowspan=<%= @rows %>>&nbsp;</td>
           <% end %>
           <% if !tool.tool_category.nil? %>
             <td><%= tool.tool_category.name %></td>
@@ -45,13 +45,17 @@
               <td>&nbsp;</td>
             <% end %>
           <% end %>
-          <td><%= tool.description %></td>
           <td>
             <div class="btn">
               <%= link_to 'Edit', edit_tool_path(tool) %>
             </div>
           </td>
         </tr>
+        <% if @rows == 2 %>
+          <tr>
+            <td colspan=5><%= tool.description %></td>
+          </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>
