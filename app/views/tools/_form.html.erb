@@ -14,7 +14,9 @@
   </p>
   <p>
   <%= t.label "Description: " %>&nbsp;
-  <%= t.text_field :description %>
+  <%= t.text_area :description, :style => "width:60%" %>
+  <br/>
+  <em style="padding-left:150px">Hint: This is just <a href="http://daringfireball.net/projects/markdown/syntax.text">Markdown</a></em>
   </p>
   <p>
   <%= t.label "Tool Picture: " %>&nbsp;
