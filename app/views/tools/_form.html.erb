@@ -1,30 +1,30 @@
 <%= form_for @tool, :html => { :multipart => true } do |t| %>
   <p>
-  <%= t.label "Name: " %>&nbsp;
-  <%= t.text_field :name %>
+    <%= t.label "Name: " %>&nbsp;
+    <%= t.text_field :name %>
   </p>
   <p>
-  <%= t.label "Category: " %>&nbsp;
-  <%= t.select :tool_category_id, @categories %>&nbsp;
-  <%= link_to "Add new Category", new_tool_category_path %>
+    <%= t.label "Category: " %>&nbsp;
+    <%= t.select :tool_category_id, @categories %>&nbsp;
+    <%= link_to "Add new Category", new_tool_category_path %>
   </p>
   <p>
-  <%= t.label "Serial Number or ID: "%>&nbsp;
-  <%= t.text_field :serial_id %>
+    <%= t.label "Serial Number or ID: "%>&nbsp;
+    <%= t.text_field :serial_id %>
   </p>
   <p>
-  <%= t.label "Description: " %>&nbsp;
-  <%= t.text_area :description, :style => "width:60%" %>
-  <br/>
-  <em style="padding-left:150px">Hint: This is just <a href="http://daringfireball.net/projects/markdown/syntax.text">Markdown</a></em>
+    <%= t.label "Description: " %>&nbsp;
+    <%= t.text_area :description, :style => "width:60%" %>
+    <br/>
+    <em style="padding-left:150px">Hint: This is just <a href="http://daringfireball.net/projects/markdown/syntax.text">Markdown</a></em>
   </p>
   <p>
-  <%= t.label "Tool Picture: " %>&nbsp;
-  <%= t.file_field :picture %>
+    <%= t.label "Tool Picture: " %>&nbsp;
+    <%= t.file_field :picture %>
   </p>
   <p>
-  <%= t.label "Owner: " %>&nbsp;
-  <%= t.select :user_id, options_for_select(@users, current_user.id) %>
+    <%= t.label "Owner: " %>&nbsp;
+    <%= t.select :user_id, options_for_select(@users, current_user.id) %>
   </p>
   <%= t.submit %>
 <% end %>
