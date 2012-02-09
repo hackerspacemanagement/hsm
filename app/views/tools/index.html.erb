@@ -24,12 +24,11 @@
     </thead>
     <tbody>
       <% @tools.each do |tool| %>
-        <% tool.description and tool.description.length > 0 ? @rows = 2 : @rows = 1 %>
         <tr>
           <% if tool.picture %>
-            <td rowspan=<%= @rows %>><%= image_tag tool.picture.url(:thumb) %></td>
+            <td><%= image_tag tool.picture.url(:thumb) %></td>
           <% else %>
-            <td rowspan=<%= @rows %>>&nbsp;</td>
+            <td>&nbsp;</td>
           <% end %>
           <% if !tool.tool_category.nil? %>
             <td><%= link_to tool.tool_category.name, tools_path(:category=>tool.tool_category.id) %></td>
@@ -47,16 +46,14 @@
           <% end %>
           <td>
             <div class="btn">
+              <%= link_to 'Show', tool_path(tool) %>
+            </div>
+            <div class="btn">
               <%= link_to 'Edit', edit_tool_path(tool) %>
             </div>
           </td>
         </tr>
-        <% if @rows == 2 %>
-          <tr>
-            <td colspan=5><%= raw(BlueCloth.new(tool.description).to_html) %></td>
-          </tr>
-        <% end %>
-      <% end %>
+      <% end%>
     </tbody>
   </table>
 </div>

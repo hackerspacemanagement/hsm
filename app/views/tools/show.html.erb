@@ -1,0 +1,15 @@
+<div class="hero-unit"%>
+  <%= image_tag 'logo.png', :class => 'pull-right' %>
+  <h2><%= @tool.name %></h2>
+
+  <% if @tool.picture == nil %>
+    <p><%= image_tag @tool.picture.url %></p>
+  <%end%>
+  <p>Name:&nbsp;<%= @tool.name %></p>
+  <p>Owner:&nbsp;<%= @user.full_name %></p>
+  <p>Serial Number:&nbsp;<%= @tool.serial_id %></p>
+  <p>
+    <%= raw(BlueCloth.new(@tool.description).to_html) %>
+  </p>
+  <%= link_to "Edit me!", edit_tool_path(@tool.id), :class => 'btn' %>
+</div>

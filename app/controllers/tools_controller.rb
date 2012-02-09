@@ -27,6 +27,15 @@ class ToolsController < ApplicationController
     @categories = categories
   end
 
+  def show
+    if params[:id]
+      @tool = Tool.find(params[:id])
+      @user = @tool.user
+    else
+      flash[:error] = "No tool selected!"
+    end
+  end
+
   def create
     @tool = Tool.new(params[:tool])
     @tool.date_added = Time.now
