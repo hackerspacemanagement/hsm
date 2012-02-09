@@ -12,7 +12,6 @@
     <div class="topbar-inner">
       <div class="container-fluid">
         <%= link_to "#{Settings.group_name} - Hackerspace Management", root_url, :class => 'brand' %>
-        <ul class="nav"><ul>
         <ul class="nav secondary-nav">
         <% if user_signed_in? %>
           <li class="dropdown">
@@ -29,6 +28,12 @@
         <% else %>
           <li><%= link_to 'Login', new_user_session_path %></li>
         <% end %>
+        </ul>
+        <ul class="nav secondary-nav">
+          <p><%= link_to 'Tools', tools_path %></p>
+        </ul>
+        <ul class="nav secondary-nav">
+          <p><%= link_to 'Skills', skills_path %></p>
         </ul>
       </div>
     </div>
