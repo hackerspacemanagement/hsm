@@ -6,6 +6,9 @@ class ToolsController < ApplicationController
       @user       = User.find(params[:id])
       @tools      = @user.tools
       @user_tools = true
+    elsif params[:category]
+      @tools      = ToolCategory.find(params[:category]).tools
+      @user_tools = nil
     else
       @tools      = Tool.all
       @user_tools = nil

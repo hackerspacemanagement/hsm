@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'Tool' do
   before do
     # Create some initial Tool categories
-    @user          = Factory.create :user
+    @user = Factory.create :user
     login_as @user
   end
   
@@ -14,26 +14,32 @@ describe 'Tool' do
       page.should have_css "a[href='#{ new_tool_path }']"
     end
     
-    it 'should display a link to add categories on the new tool page' do
-      visit new_tool_path
-      
-      page.should have_css "a[href='#{ new_tool_category_path }']"
-      
-      click_link "Add new Category"
-      
-      should_be_on new_tool_category_path
+    context 'without a redirect set' do
+      it 'should allow users to add tool categories' do
+        visit new_tool_category_path
+        
+        fill_in_fields :tool_category_name        => "Test Category",
+                       :tool_category_description => "This is a test category"
+        
+        click_button "Create Tool category"
+
+        should_be_on tool_categories_path
+      end
     end
-    
-    it 'should allow users to add tool categories' do
-      visit new_tool_category_path
-      
-      fill_in_fields :tool_category_name        => "Test Category",
-                     :tool_category_description => "This is a test category"
-      
-      click_button "Create Tool category"
-      
-      should_be_on new_tool_path
+
+    context 'with a redirect set' do
+      it 'should allow users to add tool categories' do
+        visit new_tool_category_path(:redirect_to => root_path)
+
+        fill_in_fields :tool_category_name        => "Test Category",
+                       :tool_category_description => "This is a test category"
+
+        click_button "Create Tool category"
+
+        should_be_on root_path
+      end
     end
+
     
     it 'should allow users to add tools' do
       Factory.create :tool_category, :name => "Test Category"
@@ -105,4 +111,26 @@ describe 'Tool' do
       pending "This needs to be written"
     end
   end
+  
+  describe 'tool categories' do
+    describe 'adding new tool categories' do
+      it 'should have a link to add new tool categories' do
+        visit tool_categories_path
+        
+        click_link "Add a tool category"
+        
+        page.should have_content "New Tool Category"
+      end
+      
+      it 'should allow anyone to add new tool categories' do
+        visit new_tool_category_path
+        
+        fill_in_fields :tool_category, :name => "Test Category",
+                                       :description => "This is a test!"
+        
+        click_button "Create Tool category"
+      end
+    end
+  end
+  
 end

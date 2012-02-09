@@ -6,7 +6,7 @@
   <p>
     <%= t.label "Category: " %>&nbsp;
     <%= t.select :tool_category_id, @categories %>&nbsp;
-    <%= link_to "Add new Category", new_tool_category_path %>
+    <%= link_to "Add new Category", new_tool_category_path( :redirect_to => request.url ) %>
   </p>
   <p>
     <%= t.label "Serial Number or ID: "%>&nbsp;

@@ -32,7 +32,7 @@
             <td rowspan=<%= @rows %>>&nbsp;</td>
           <% end %>
           <% if !tool.tool_category.nil? %>
-            <td><%= tool.tool_category.name %></td>
+            <td><%= link_to tool.tool_category.name, tools_path(:category=>tool.tool_category.id) %></td>
           <% else %>
             <td>&nbsp;</td>
           <% end %>

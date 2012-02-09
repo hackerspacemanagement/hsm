@@ -15,5 +15,10 @@
       <li><%= us.user.full_name + " rates themselves " + us.proficiency.to_s + " out of 5" %></li>
     <% end %>
   </ul>
+     <p>
+      <% @userskills.each do |us| %>
+        <%= image_tag(us.user.gravatar_url) %></li>
+      <% end %>
+    </p> 
   </p>
 </div>

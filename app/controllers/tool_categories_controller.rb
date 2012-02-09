@@ -6,6 +6,7 @@ class ToolCategoriesController < ApplicationController
   end
 
   def new
+    @redirect_to = params[:redirect_to]
     @category = ToolCategory.new
   end
 
@@ -17,7 +18,11 @@ class ToolCategoriesController < ApplicationController
     @category = ToolCategory.new(params[:tool_category])
     if @category.save
       flash[:notice] = "Dude, you are awesome. You've added a category."
-      redirect_to new_tool_path
+      if params[:redirect] 
+        redirect_to params[:redirect]
+      else
+        redirect_to tool_categories_path
+      end
     else
       flash[:alert] = 'You broke something. :-('
       redirect_to edit_tool_category_path(@category)
@@ -33,6 +38,10 @@ class ToolCategoriesController < ApplicationController
       flash[:alert] = "Whoops, something bad happened!"
       redirect_to edit_tool_category_path(@category)
     end
+  end
+
+  def show
+    @c = ToolCategory.find(params[:id])
   end
 
 end
