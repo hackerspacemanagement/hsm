@@ -4,6 +4,7 @@
   <table>
     <thead>
       <tr>
+        <th>Picture</th>
         <th>Email</th>
         <th>Real Name</th>
         <th>Role</th>
@@ -13,6 +14,7 @@
     <tbody>
       <% @users.each do |u| %>
         <tr>
+          <td><%= image_tag u.gravatar_url %>
           <td><%= u.email %></td>
           <td><%= u.full_name %></td>
           <% if u.role %>
@@ -21,11 +23,8 @@
             <td>None</td>
           <% end %>
           <td>
-            <div class="actions">
-              <div class="btn">
-                TODO
-                <%= link_to 'Edit', edit_user_registration_path(u) %>
-              </div>
+            <div class="btn">
+              <%= link_to 'Edit', edit_user_registration_path(u) %>
             </div>
           </td>
         </tr>
