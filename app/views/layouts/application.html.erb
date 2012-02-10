@@ -16,7 +16,7 @@
         <ul class='nav secondary-nav'>
           <% if user_signed_in? %>
             <li class='dropdown' data-dropdown='dropdown'>
-              <%= link_to current_user.email, '#', :class => 'dropdown-toggle' %>
+              <%= link_to current_user.full_name, '#', :class => 'dropdown-toggle' %>
               <ul class='dropdown-menu'>
                 <li><%= link_to 'Account Settings', edit_user_registration_path %></li>
                 <li class='divider'></li>
@@ -30,8 +30,16 @@
             <li><%= link_to 'Login', new_user_session_path %></li>
           <% end %>
         </ul>
-        <ul class="nav secondary-nav">
-          <p><%= link_to 'Tools', tools_path %></p>
+        <ul class='nav secondary-nav'>
+          <li class='dropdown' data-dropdown='dropdown'>
+            <%= link_to "Tools", '#', :class => 'dropdown-toggle' %>
+            <ul class='dropdown-menu'>
+              <% if user_signed_in? %>
+                <li><%= link_to 'My Tools', tools_path(:id=>current_user.id) %></li>
+              <% end %>
+              <li><%= link_to 'All Tools', tools_path %></li>
+            </ul>
+          </li>
         </ul>
         <ul class="nav secondary-nav">
           <p><%= link_to 'Skills', skills_path %></p>
