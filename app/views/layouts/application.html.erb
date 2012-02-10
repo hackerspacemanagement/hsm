@@ -8,26 +8,27 @@
 </head>
 
 <body>
-  <div class="topbar">
-    <div class="topbar-inner">
-      <div class="container-fluid">
+  <div class='topbar'>
+    <div class='topbar-inner'>
+      <div class='container-fluid'>
         <%= link_to "#{Settings.group_name} - Hackerspace Management", root_url, :class => 'brand' %>
-        <ul class="nav secondary-nav">
-        <% if user_signed_in? %>
-          <li class="dropdown">
-            <%= link_to current_user.email, '#', :class => 'dropdown-toggle' %>
-            <ul class="dropdown-menu">
-              <li><%= link_to 'Account Settings', edit_user_registration_path %></li>
-            <% if can? :read, :admin_panel %>
-              <li><%= link_to 'Administration', admin_root_url %></li>
-            <% end %>
-              <li class="divider"></li>
-              <li><%= link_to 'Logout', destroy_user_session_path %></li>
-            </ul>
-          </li>
-        <% else %>
-          <li><%= link_to 'Login', new_user_session_path %></li>
-        <% end %>
+        <ul class='nav'></ul>
+        <ul class='nav secondary-nav'>
+          <% if user_signed_in? %>
+            <li class='dropdown' data-dropdown='dropdown'>
+              <%= link_to current_user.email, '#', :class => 'dropdown-toggle' %>
+              <ul class='dropdown-menu'>
+                <li><%= link_to 'Account Settings', edit_user_registration_path %></li>
+                <li class='divider'></li>
+                <% if can? :read, :admin_panel %>
+                  <li><%= link_to 'Administration', admin_root_url %></li>
+                <% end %>
+                <li><%= link_to 'Logout', destroy_user_session_path %></li>
+              </ul>
+            </li>
+          <% else %>
+            <li><%= link_to 'Login', new_user_session_path %></li>
+          <% end %>
         </ul>
         <ul class="nav secondary-nav">
           <p><%= link_to 'Tools', tools_path %></p>
