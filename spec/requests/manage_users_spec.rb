@@ -72,7 +72,7 @@ describe 'Managing Users' do
     it 'has a link to edit account' do
       visit root_url
 
-      page.should have_css('a', :text => @user.email)
+      page.should have_css('a', :text => @user.full_name)
     end
 
     context 'with valid information' do

@@ -35,7 +35,7 @@ describe User do
       fill_in_fields :user_email => @user.email, :user_password => 'password'
 
       click_button 'Sign in'
-      page.should have_content(@user.email)
+      page.should have_content(@user.full_name)
       page.should have_content('Logout')
     end
 
@@ -58,7 +58,7 @@ describe User do
 
       click_button 'Sign in'
 
-      page.should have_content(@user.email)
+      page.should have_content(@user.full_name)
       page.should have_content('Logout')
     end
 
@@ -111,7 +111,7 @@ describe User do
       fill_in_fields(:user_password => 'new_password', :user_password_confirmation => 'new_password')
       click_button('Change my password')
 
-      page.should have_content(@user_a.email)
+      page.should have_content(@user_a.full_name)
       page.should have_content('Logout')
     end
 
