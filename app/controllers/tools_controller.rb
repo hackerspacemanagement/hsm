@@ -52,6 +52,7 @@ class ToolsController < ApplicationController
   def update
     @tool = Tool.find(params[:id])
     if @tool.update_attributes(params[:tool])
+      log_action "updated", @tool
       flash[:notice] = "Your changes have been saved, good sir or madam."
       redirect_to tools_path
     else
