@@ -10,7 +10,9 @@ describe User do
   describe 'logging in' do
 
     before do
-      @user = Factory.create(:user, :email => 'fry@planet-express.com', :password => 'password', :password_confirmation => 'password')
+      @user = Factory.create( :user, :email                 => 'fry@planet-express.com',
+                                     :password              => 'password',
+                                     :password_confirmation => 'password')
     end
 
     it 'should display a login link on the homepage' do
