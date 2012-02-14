@@ -1,12 +1,10 @@
 <div class="hero-unit">
   <%= image_tag 'logo.png', :class => 'pull-right' %>
 
-  <h1><%= Settings.group_name %></h1>
-
   <% if !@user %>
-    <h2>Tools</h2>
+    <h1>Tools</h1>
   <% else %>
-    <h2><%= @user.full_name + "'s Tools" %></h2>
+    <h1><%= @user.full_name + "'s Tools" %></h1>
   <% end %>
 
   <p><%= link_to "Add a tool", :controller => "tools", :action => "new" %></p>
@@ -39,7 +37,7 @@
           <td><%= tool.serial_id %></td>
           <% if !@user %>
             <% if !tool.user.nil? %>
-              <td><%= link_to tool.user.full_name, :action => 'index', :id => tool.user.id, :controller => 'tools' %></td>
+              <td><%= link_to tool.user.full_name, tools_path(:id => tool.user.id) %></td>
             <% else %>
               <td>&nbsp;</td>
             <% end %>

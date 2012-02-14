@@ -1,11 +1,10 @@
 <div class="hero-unit">
   <%= image_tag 'logo.png', :class => 'pull-right' %>
-  <h1><%= Settings.group_name %></h1>
 
   <% if !@user %>
-    <h2>Tools</h2>
+    <h1>Skills</h1>
   <% else %>
-    <h2><%= @user.full_name + "'s Skills" %></h2>
+    <h1><%= @user.full_name + "'s Skills" %></h1>
   <% end %>
 
   <p><%= link_to "Add a skill", :controller => 'skills', :action => 'new' %></p>
@@ -16,6 +15,7 @@
       <td><%= sort_link "Description", :description %></td>
       <td><%= sort_link "More Info URL", :more_info_url %></td>
       <td><%= sort_link "Knowledgeable Users", :knowledgeable_users %></td>
+      <td>Actions</td>
     </thead>
     <tbody>
       <% @skills.each do |skill| %>
@@ -24,6 +24,10 @@
           <td><%= skill.description %></td>
           <td><%= link_to "[link]", skill.more_info_url %></td>
           <td><%= link_to UsersSkill.where(:skill_id => skill.id).count, :controller => 'skills', :action => 'show', :id => skill.id %></td>
+          <td>
+            <%= link_to 'Show', skill_path(skill),      :class => 'btn' %>
+            <%= link_to 'Edit', edit_skill_path(skill), :class => 'btn' %>
+          </td>
         </tr>
       <% end %>
     </tbody>

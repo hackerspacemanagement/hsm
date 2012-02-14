@@ -1,6 +1,6 @@
 <div class="hero-unit"%>
   <%= image_tag 'logo.png', :class => 'pull-right' %>
-  <h2><%= @tool.name %></h2>
+  <h1><%= @tool.name %></h1>
 
   <% if @tool.picture == nil %>
     <p><%= image_tag @tool.picture.url %></p>

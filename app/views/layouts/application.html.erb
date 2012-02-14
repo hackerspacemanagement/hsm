@@ -41,8 +41,16 @@
             </ul>
           </li>
         </ul>
-        <ul class="nav secondary-nav">
-          <p><%= link_to 'Skills', skills_path %></p>
+        <ul class='nav secondary-nav'>
+          <li class='dropdown' data-dropdown='dropdown'>
+            <%= link_to "Skills", '#', :class => 'dropdown-toggle' %>
+            <ul class='dropdown-menu'>
+              <% if user_signed_in? %>
+                <li><%= link_to 'My Skills', skills_path(:id=>current_user.id) %></li>
+              <% end %>
+              <li><%= link_to 'All Skills', skills_path %></li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>
@@ -53,7 +61,7 @@
       <div class="row">
         <div class="span16">
           <% if flash[:notice] %>
-            <div class="alert-message success fade">
+            <div class="alert-message success fade in">
               <%= link_to 'x', '#', :class => 'close' %>
               <p><%= flash[:notice] %></p>
             </div>
