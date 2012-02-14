@@ -11,14 +11,14 @@
 
   <table>
     <thead>
-      <td>Picture</td>
-      <td><%= sort_link "Category", :category %></td>
+      <td style="width:15%">Picture</td>
+      <td style="width:20%"><%= sort_link "Category", :category %></td>
       <td><%= sort_link "Name", :name %></td>
       <td><%= sort_link "Serial #", :serial_id %></td>
       <% if !@user %>
         <td><%= sort_link "Owner", :user_id %></td>
       <% end %>
-      <td>Actions</td>
+      <td style="width:15%">Actions</td>
     </thead>
     <tbody>
       <% @tools.each do |tool| %>
