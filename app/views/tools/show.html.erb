@@ -8,6 +8,7 @@
   <p>Name:&nbsp;<%= @tool.name %></p>
   <p>Owner:&nbsp;<%= @user.full_name %></p>
   <p>Serial Number:&nbsp;<%= @tool.serial_id %></p>
+  <p>Location:&nbsp;<%= @tool.location %></p>
   <p>Category:&nbsp;<%= @tool.tool_category ? @tool.tool_category.name : "None" %></p>
   <p>
     <%= raw(BlueCloth.new(@tool.description).to_html) %>

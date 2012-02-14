@@ -9,6 +9,10 @@
     <%= link_to "Add new Category", new_tool_category_path( :redirect_to => request.url ) %>
   </p>
   <p>
+    <%= t.label "Location:"%>&nbsp;
+    <%= t.text_field :location %>
+  </p>
+  <p>
     <%= t.label "Serial Number or ID: "%>&nbsp;
     <%= t.text_field :serial_id %>
   </p>
