@@ -1,0 +1,13 @@
+<div class='span8'>
+   <h2>New Users</h2>
+   <% newusers.each do |action| %>
+    <div class='actions'>
+      <% if action.user %>
+        <%= image_tag action.user.gravatar_url(:thumb) %>
+        <%= action.user.full_name %>
+
+        has joined <%= Settings.site_name %>! Make sure you say hello!
+      <% end %>
+    </div>
+  <% end %>
+</div>

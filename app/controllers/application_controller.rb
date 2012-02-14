@@ -13,6 +13,14 @@ class ApplicationController < ActionController::Base
     redirect_to root_path
   end
 
+  def get_space_actions
+    UserAction.page(params[:site_page] ).order('created_at DESC')
+  end
+
+  def get_user_log
+    UserAction.where("obj_type = 'User'").page(params[:users_page]).order('created_at DESC')
+  end
+
   def log_action(event, object)
     action        = UserAction.new event: event
     action.object = @tool

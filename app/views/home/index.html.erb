@@ -10,11 +10,14 @@
   <% end %>
   <% if user_signed_in? %>
     <div class="clearfix">
-      <div class="actions">
-        <% # <div class="btn"><%= link_to 'My Skills', :controller => "/users_skills", :id => current_user.id % ></div> %>
-        <% # <div class="btn"><%= link_to 'My Tools', :controller => "/tools", :id => current_user.id % ></div> %>
-        <% # <div class="btn"><%= link_to 'My Projects', root_url, :controler => "/projects", :id => current_user.id % ></div> %>
-      </div>
+    <div class='span8'>
+      <p>Welcome to Hackerspace Management for <%= Settings.group_name %>! Feel free to browse the 
+         <%= link_to 'tools', tools_path %> and <%=link_to 'skills', skills_path %> lists and feel
+         free to add your own information to the database.</p>
+      <p>This site is under active development, and we have a huge list of features we will be
+         adding in the near future. Please check out the <%= link_to 'project Github page', 'https://github.com/rrix/hsm' %>
+         and feel free to lend your skills where you can!</p>
     </div>
+    <%= render '/newsfeed/spaceupdates', :siteactions => @siteactions %>
   <% end %>
 </div>

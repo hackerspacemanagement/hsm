@@ -1700,7 +1700,9 @@ a.menu:after, .dropdown-toggle:after {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
-  width: 1000px
+  width: 1000px;
+  min-height: 100%;
+  overflow: auto;
 }
 .hero-unit h1 {
   margin-bottom: 0;
