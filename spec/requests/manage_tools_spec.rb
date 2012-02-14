@@ -39,20 +39,31 @@ describe 'Tool' do
         should_be_on root_path
       end
     end
-
     
-    it 'should allow users to add tools' do
-      Factory.create :tool_category, :name => "Test Category"
-      visit new_tool_path
-      
-      fill_in_fields :tool_name        => "Test Tool",
-                     :tool_serial_id   => "1234",
-                     :tool_description => "This is a test tool"
-      
-      page.select("Test Category", :from => "tool_tool_category_id")
-      page.select(@user.full_name, :from => "tool_user_id")
-      
-      click_button "Create Tool"
+    describe 'actual tool creation' do
+      before do
+        Factory.create :tool_category, :name => "Test Category"
+        visit new_tool_path
+        
+        fill_in_fields :tool_name        => "Test Tool",
+                       :tool_serial_id   => "1234",
+                       :tool_description => "This is a test tool"
+        
+        page.select("Test Category", :from => "tool_tool_category_id")
+        page.select(@user.full_name, :from => "tool_user_id")
+        
+        click_button "Create Tool"
+      end
+
+      it 'should allow users to add tools' do
+        Tool.find_by_name("Test Tool").should
+      end
+
+      it 'should list new tool on the newsfeed' do
+        visit newsfeed_path
+
+        page.should have_content "added Test Tool"
+      end
     end
   end
   
@@ -105,11 +116,36 @@ describe 'Tool' do
                                       :user          => @user,
                                       :tool_category => @tool_category,
                                       :description   => "This is a test"
+
+      @tool.save
+
+      visit edit_tool_path @tool
+
+      fill_in_fields :tool, :name        => "Test Changed Tool",
+                            :location    => "back of the lab",
+                            :serial_id   => "1234",
+                            :description => "This is still a test"
+
+      click_button "Update Tool"
     end
     
     it 'should be able to edit existing tools' do
-      pending "This needs to be written"
+      page.should_not have_content "Whoops"
+      should_be_on tools_path
+      
+      @tool.reload
+      @tool.name.should        == "Test Changed Tool"
+      @tool.location.should    == "back of the lab"
+      @tool.serial_id.should   == "1234"
+      @tool.description.should == "This is still a test"
     end
+
+    it 'should show the changes on the newsfeed' do
+      visit newsfeed_path
+
+      page.should have_content "updated Test Changed Tool"
+    end
+
   end
   
   describe 'tool categories' do
@@ -132,5 +168,4 @@ describe 'Tool' do
       end
     end
   end
-  
 end
