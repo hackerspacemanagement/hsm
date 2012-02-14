@@ -29,7 +29,9 @@ class User < ActiveRecord::Base
 
   has_many :users_skills
   has_many :skills, :through => :users_skills
+
   has_many :tools
+  has_many :user_actions
 
   def has_permission?(perm)
     if not role.nil?
