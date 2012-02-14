@@ -901,14 +901,14 @@ textarea[readonly] {
   cursor: not-allowed;
 }
 .actions {
-  background: #2c2c29;
+  background: #494c49;
   margin-top: 18px;
   margin-bottom: 18px;
-  padding: 17px 20px 18px 150px;
-  border-top: 1px solid #ddd;
-  -webkit-border-radius: 0 0 3px 3px;
-  -moz-border-radius: 0 0 3px 3px;
-  border-radius: 0 0 3px 3px;
+  padding: 17px 20px 18px 15px;
+  border-top: 1px solid #191919;
+  -webkit-border-radius: 0 0 4px 4px;
+  -moz-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
 }
 .actions .secondary-action {
   float: right;
