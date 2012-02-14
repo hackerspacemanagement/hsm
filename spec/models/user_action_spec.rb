@@ -12,7 +12,7 @@ describe UserAction do
   end
 
   it 'should have a type' do
-    action.type.should == 'created tool'
+    action.type.should == 'created Tool'
   end
 
   it 'should be attached to a user' do
@@ -24,7 +24,7 @@ describe UserAction do
   end
 
   it 'should have an object_type' do
-    action.obj_type.should == tool.class
+      action.obj_type.should == tool.class.to_s
   end
 
   it 'should have an object_id' do
