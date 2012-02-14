@@ -7,6 +7,8 @@ class UserAction < ActiveRecord::Base
   end
 
   def object
+    # FFR
+    # http://infovore.org/archives/2006/08/02/getting-a-class-object-in-ruby-from-a-string-containing-that-classes-name/
     obj_class = Object.const_get(obj_type)
     obj_class.find obj_id
   end

@@ -12,5 +12,14 @@ class ApplicationController < ActionController::Base
     flash[:alert] = "You aren't authorized to view this!"
     redirect_to root_path
   end
+
+  def log_action(event, object)
+    action = UserAction.new event: event
+    action.object = @tool
+
+    if !action.save
+      flash[:alert] = "Could not log action."
+    end
+  end
  
 end
