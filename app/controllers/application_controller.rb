@@ -14,8 +14,9 @@ class ApplicationController < ActionController::Base
   end
 
   def log_action(event, object)
-    action = UserAction.new event: event
+    action        = UserAction.new event: event
     action.object = @tool
+    action.user   = current_user
 
     if !action.save
       flash[:alert] = "Could not log action."
