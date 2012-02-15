@@ -3,7 +3,7 @@
   <% siteactions.each do |action| %>
     <div class='actions'>
       <% if action.user %>
-        <%= image_tag action.user.gravatar_url, :class => 'pull-right', :style => 'margin-left:10px;'%>
+        <%= image_tag action.user.gravatar_url(50), :class => 'pull-right', :style => 'margin-left:10px;'%>
         <%= action.user.full_name %>
       <% else %>
         The space
