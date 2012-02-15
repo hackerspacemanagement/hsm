@@ -9,7 +9,7 @@
         The space
       <% end %>
        
-      <%= action.type %>
+      <%= action.event %>&nbsp;<%= action.obj_type.downcase %>
       <% if action.object %>
         <%= link_to action.object.name, :action => 'show', :controller => action.obj_type.tableize, :id => action.obj_id%>
       <% end %>
