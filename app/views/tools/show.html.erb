@@ -2,16 +2,20 @@
   <%= image_tag 'logo.png', :class => 'pull-right' %>
   <h1><%= @tool.name %></h1>
 
-  <% if @tool.picture == nil %>
-    <p><%= image_tag @tool.picture.url %></p>
+  <div class='span6'>
+  <% if @tool.picture %>
+    <p><%= image_tag @tool.picture.url(:medium) %></p>
   <%end%>
-  <p>Name:&nbsp;<%= @tool.name %></p>
-  <p>Owner:&nbsp;<%= @user.full_name %></p>
-  <p>Serial Number:&nbsp;<%= @tool.serial_id %></p>
-  <p>Location:&nbsp;<%= @tool.location %></p>
-  <p>Category:&nbsp;<%= @tool.tool_category ? @tool.tool_category.name : "None" %></p>
-  <p>
-    <%= raw(BlueCloth.new(@tool.description).to_html) %>
-  </p>
-  <%= link_to "Edit me!", edit_tool_path(@tool.id), :class => 'btn' %>
+    <p>Name:&nbsp;<b><%= @tool.name %></b></p>
+    <p>Owner:&nbsp;<b><%= @user.full_name %></b></p>
+    <p>Serial Number:&nbsp;<b><%= @tool.serial_id %></b></p>
+    <p>Location:&nbsp;<b><%= @tool.location %></b></p>
+    <p>Category:&nbsp;<b><%= @tool.tool_category ? @tool.tool_category.name : "None" %></b></p>
+    <%= link_to "Edit me!", edit_tool_path(@tool.id), :class => 'btn' %>
+  </div>
+  <div class='span10'>
+    <p>
+      <%= raw(BlueCloth.new(@tool.description).to_html) %>
+    </p>
+  </div>
 </div>

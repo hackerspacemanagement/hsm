@@ -140,4 +140,88 @@ describe 'Managing Users' do
 
   end
 
+  describe 'viewing profile' do
+
+    before do
+      @user   = Factory.create :user,  :skill_summary  => "I do awesome stuff so hard"
+      @skill  = Factory.create :skill, :name           => "Doing Awesome Stuff"
+      @skill.assign_to @user, @user, 5
+      @user.save
+    end
+
+    context 'logged in as user' do
+
+      before do
+        login_as @user
+      end
+
+      it 'should have a link to view the user\'s profile from the menu' do
+        visit root_path
+
+        click_link @user.full_name
+        page.should have_content "My Profile"
+      end
+
+      it 'clicking the profile link should take you to the user profile' do
+        visit root_path
+
+        click_link @user.full_name
+        click_link "My Profile"
+
+        page.should have_content @user.full_name
+        page.should have_content 'Biography'
+        page.should have_content 'Skills'
+      end
+
+      it 'should have links to edit info' do
+        visit user_path @user
+
+        page.should have_content "Edit Information"
+      end
+
+      it 'should have links to add skills' do
+       visit user_path @user
+
+       page.should have_content "Add skill"
+      end
+
+    end
+
+    context 'not logged in as user' do
+
+      it 'should show a link to the user index on the homepage' do
+        visit root_path
+
+        page.should have_css "a[href='#{ users_path }']"
+      end
+
+      it 'should show all the users on the user index' do
+        visit users_path
+
+        page.should have_content @user.full_name
+      end
+
+      it 'should show a link to view each profile on the user index' do
+        visit users_path
+
+        page.should have_css "a[href='#{user_path @user}']"
+      end
+
+      it 'should display the user biography on the profile page' do
+        visit user_path @user
+
+        page.should have_content "Biography"
+        page.should have_content @user.skill_summary
+      end
+
+      it 'should display the user gravatar image' do
+        visit user_path @user
+
+        page.should have_css "img[src='#{ @user.gravatar_url }']"
+      end
+
+    end
+
+  end
+
 end

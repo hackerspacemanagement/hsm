@@ -20,6 +20,6 @@ class Skill < ActiveRecord::Base
     user_skill = UsersSkill.new :user_id => user.id,  :skill_id => self.id, :proficiency => proficiency
     user_skill.save
     
-    return true
+    return user_skill
   end
 end

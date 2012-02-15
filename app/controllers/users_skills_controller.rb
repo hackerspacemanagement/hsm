@@ -23,12 +23,18 @@ class UsersSkillsController < ApplicationController
     skill = Skill.find params[:users_skill][:skill_id]
     proficiency = params[:users_skill][:proficiency]
     
-    if skill.assign_to user, current_user, proficiency
+    if uskill = skill.assign_to( user, current_user, proficiency)
+      log_action "created", uskill
       flash[:notice] = "Great success!"
       redirect_to users_skills_path
     else
       flash[:alert] = "You were not able to save the skill."
       redirect_to new_users_skill_path(params[:users_skill])
     end
+  end
+
+  def show
+    @userskill = UsersSkill.find params[:id]
+    redirect_to skill_path @userskill.skill
   end
 end

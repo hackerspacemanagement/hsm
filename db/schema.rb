@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120214015247) do
+ActiveRecord::Schema.define(:version => 20120214082217) do
 
   create_table "permissions", :force => true do |t|
     t.string   "name"
@@ -74,6 +74,15 @@ ActiveRecord::Schema.define(:version => 20120214015247) do
     t.datetime "picture_updated_at"
     t.string   "serial_id"
     t.string   "location"
+  end
+
+  create_table "user_actions", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "obj_type"
+    t.string   "obj_id"
+    t.string   "event"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "user_roles", :force => true do |t|

@@ -40,6 +40,7 @@ class ToolsController < ApplicationController
     @tool = Tool.new(params[:tool])
     @tool.date_added = Time.now
     if @tool.save
+      log_action "added", @tool
       flash[:notice] = "Dude, you are awesome. You've added a tool."
       redirect_to tools_path
     else
@@ -51,6 +52,7 @@ class ToolsController < ApplicationController
   def update
     @tool = Tool.find(params[:id])
     if @tool.update_attributes(params[:tool])
+      log_action "updated", @tool
       flash[:notice] = "Your changes have been saved, good sir or madam."
       redirect_to tools_path
     else

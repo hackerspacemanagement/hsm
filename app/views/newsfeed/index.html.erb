@@ -1,0 +1,9 @@
+<div class='hero-unit'>
+  <%= image_tag 'logo.png', :class => 'pull-right' %>
+
+  <h1>Site News</h1>
+
+  <br clear=all>
+  <%= render 'spaceupdates', :siteactions => @siteactions %>
+  <%= render 'newusers',     :newusers    => @newusers %>
+</div>

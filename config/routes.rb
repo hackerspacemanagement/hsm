@@ -7,7 +7,10 @@ Hsm::Application.routes.draw do
     resource :settings
   end
 
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
+
+  match 'users',     :to => 'users#index'
+  match 'users/:id', :to => 'users#show', :as => "user"
 
   resource :home
   resources :tools
@@ -16,5 +19,7 @@ Hsm::Application.routes.draw do
   resources :skills
 
   root :to => 'home#index'
+
+  match 'newsfeed', :to => 'newsfeed#index'
 
 end
