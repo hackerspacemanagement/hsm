@@ -1,0 +1,27 @@
+<div class='hero-unit'>
+  <%= image_tag 'logo.png', :class => 'pull-right' %>
+  <h1><%= @user.full_name %></h1>
+
+  <div class='span6'>
+    <h2>Biography</h2>
+    <% if current_user = @user %>
+      <%= link_to 'Edit Information...', edit_user_registration_path %>
+      <br clear='all'>
+    <% end %>
+
+    <%= image_tag @user.gravatar_url, :class => 'pull-left'%>
+    <p><%= @user.skill_summary %>
+  </div>
+  <div class='span8'>
+    <h2>Skills</h2>
+    <% if current_user = @user %>
+      <%= link_to 'Add skill...', new_users_skill_path %>
+    <% end %>
+
+    <% @user.skills.each do |skill| %>
+      <div class='actions'>
+        <%= link_to skill.name, skill_path(skill) %>
+      </div>
+    <% end %>
+  </div>
+</div>

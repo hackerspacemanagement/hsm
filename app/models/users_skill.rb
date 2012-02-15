@@ -5,5 +5,9 @@ class UsersSkill < ActiveRecord::Base
   validates_presence_of :skill_id
   validates_presence_of :user_id  
   validates_presence_of :proficiency
+
+  def name
+    skill.name
+  end
   
 end

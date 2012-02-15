@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
       first_name + " " + last_name
   end
 
+  def name
+    full_name
+  end
+
   def gravatar_url size=80
     hash = Digest::MD5.hexdigest(email.downcase.strip)
     "http://www.gravatar.com/avatar/#{hash}?s=#{size}"
@@ -41,7 +45,7 @@ class User < ActiveRecord::Base
     end  
     return false
   end
-  
+
   # Implements magic such as @user.is_an_admin_or_superhero?
   # and @user.can_fly?
   def method_missing(method_id, *args)

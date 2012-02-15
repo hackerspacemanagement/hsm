@@ -9,7 +9,6 @@
     <p><%= link_to 'Login', new_user_session_path %> or <%= link_to 'Sign up', new_user_registration_path %> to get started!</p>
   <% end %>
   <% if user_signed_in? %>
-    <div class="clearfix">
     <div class='span8'>
       <p>Welcome to Hackerspace Management for <%= Settings.group_name %>! Feel free to browse the 
          <%= link_to 'tools', tools_path %> and <%=link_to 'skills', skills_path %> lists and feel

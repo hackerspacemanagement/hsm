@@ -32,4 +32,9 @@ class UsersSkillsController < ApplicationController
       redirect_to new_users_skill_path(params[:users_skill])
     end
   end
+
+  def show
+    @userskill = UsersSkill.find params[:id]
+    redirect_to skill_path @userskill.skill
+  end
 end
