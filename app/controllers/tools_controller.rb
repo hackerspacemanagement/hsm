@@ -4,13 +4,13 @@ class ToolsController < ApplicationController
   def index
     if params[:id]
       @user       = User.find(params[:id])
-      @tools      = @user.tools
+      @tools      = @user.tools.paginate(:page => params[:page])
       @user_tools = true
     elsif params[:category]
-      @tools      = ToolCategory.find(params[:category]).tools
+      @tools      = ToolCategory.find(params[:category]).tools.paginate(:page => params[:page])
       @user_tools = nil
     else
-      @tools      = Tool.all
+      @tools      = Tool.paginate(:page => params[:page])
       @user_tools = nil
     end
   end

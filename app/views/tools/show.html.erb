@@ -7,7 +7,7 @@
     <p><%= image_tag @tool.picture.url(:medium) %></p>
   <%end%>
     <p>Name:&nbsp;<b><%= @tool.name %></b></p>
-    <p>Owner:&nbsp;<b><%= @user.full_name %></b></p>
+    <p>Owner:&nbsp;<b><%= @tool.user.full_name if @tool.user %></b></p>
     <p>Serial Number:&nbsp;<b><%= @tool.serial_id %></b></p>
     <p>Location:&nbsp;<b><%= @tool.location %></b></p>
     <p>Category:&nbsp;<b><%= @tool.tool_category ? @tool.tool_category.name : "None" %></b></p>
