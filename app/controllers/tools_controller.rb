@@ -40,7 +40,7 @@ class ToolsController < ApplicationController
     @tool = Tool.new(params[:tool])
     @tool.date_added = Time.now
     if @tool.save
-      log_action "created", @tool
+      log_action "added", @tool
       flash[:notice] = "Dude, you are awesome. You've added a tool."
       redirect_to tools_path
     else

@@ -2,12 +2,13 @@
    <h2>New Users</h2>
    <% newusers.each do |action| %>
     <div class='actions'>
-      <% if action.user %>
-        <%= image_tag action.user.gravatar_url(:thumb) %>
-        <%= action.user.full_name %>
+      <% if action.object %>
+        <%= image_tag action.object.gravatar_url(:thumb) %>
+        <%= link_to action.object.full_name, user_path(action.object) %>
 
         has joined <%= Settings.site_name %>! Make sure you say hello!
       <% end %>
     </div>
   <% end %>
+  <%= will_paginate newusers, :param_name => :users_page %>
 </div>

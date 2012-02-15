@@ -12,6 +12,9 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def update
-    super
+    if super
+      user = User.find_by_email params[:user][:email]
+      log_action('updated', user) if user
+    end
   end
 end 

@@ -8,15 +8,13 @@
     <br/>
     <p><%= link_to 'Login', new_user_session_path %> or <%= link_to 'Sign up', new_user_registration_path %> to get started!</p>
   <% end %>
-  <% if user_signed_in? %>
-    <div class='span8'>
-      <p>Welcome to Hackerspace Management for <%= Settings.group_name %>! Feel free to browse the 
-         <%= link_to 'tools', tools_path %> and <%=link_to 'skills', skills_path %> lists and feel
-         free to add your own information to the database.</p>
-      <p>This site is under active development, and we have a huge list of features we will be
-         adding in the near future. Please check out the <%= link_to 'project Github page', 'https://github.com/rrix/hsm' %>
-         and feel free to lend your skills where you can!</p>
-    </div>
-    <%= render '/newsfeed/spaceupdates', :siteactions => @siteactions %>
-  <% end %>
+  <div class='span8'>
+    <p>Welcome to Hackerspace Management for <%= Settings.group_name %>! Feel free to browse the 
+       <%= link_to 'tools', tools_path %> and <%=link_to 'skills', skills_path %> lists and feel
+       free to add your own information to the database.</p>
+    <p>This site is under active development, and we have a huge list of features we will be
+       adding in the near future. Please check out the <%= link_to 'project Github page', 'https://github.com/rrix/hsm' %>
+       and feel free to lend your skills where you can!</p>
+  </div>
+  <%= render '/newsfeed/spaceupdates', :siteactions => @siteactions %>
 </div>

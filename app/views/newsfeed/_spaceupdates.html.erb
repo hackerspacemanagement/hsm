@@ -3,7 +3,7 @@
   <% siteactions.each do |action| %>
     <div class='actions'>
       <% if action.user %>
-        <%= image_tag action.user.gravatar_url(:thumb) %>
+        <%= image_tag action.user.gravatar_url, :class => 'pull-right', :style => 'margin-left:10px;'%>
         <%= action.user.full_name %>
       <% else %>
         The space
@@ -13,6 +13,12 @@
       <% if action.object %>
         <%= link_to action.object.name, :action => 'show', :controller => action.obj_type.tableize, :id => action.obj_id%>
       <% end %>
+      <% if action.type == 'updated User' %>
+        's profile.
+      <% elsif action.type == 'added Tool' %>
+        &nbsp;to the database.
+      <% end %>
     </div>
   <% end %>
+  <%= will_paginate siteactions, :param_name => :site_page %>
 </div>
