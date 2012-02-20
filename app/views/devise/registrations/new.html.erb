@@ -19,6 +19,11 @@
   <p><%= f.label :password_confirmation, "Confirmation: " %>&nbsp;
   <%= f.password_field :password_confirmation %></p>
 
+  <p>
+    <%= f.label :skill_summary, "Biography: " %>&nbsp;
+    <%= f.text_area :skill_summary, :class => 'xxlarge', :rows => '10' %>
+  <p>
+
   <p><%= f.submit "Sign up" %></p>
 <% end %>
 

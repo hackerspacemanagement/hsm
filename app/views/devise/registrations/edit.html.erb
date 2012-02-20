@@ -32,7 +32,12 @@
     <%= resource.role.name %>
   </p>
 
-  <p><%= f.submit "Update", :class => 'btn' %></p>
+  <p>
+    <%= f.label :skill_summary, "Biography: " %>&nbsp;
+    <%= f.text_area :skill_summary, :style => 'width:500px' %>
+  <p>
+  
+  <%= f.submit "Update", :class => 'btn' %></p>
 <% end %>
 
 <h3>Cancel my account</h3>

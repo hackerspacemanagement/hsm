@@ -20,11 +20,12 @@ group :assets do
 end
 
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'cover_me', '>= 1.2.0'
   gem 'guard-rspec'
   gem 'guard-livereload'
   gem 'pry'
   gem 'pry-doc'
+  gem 'rspec-rails'
 end
 
 group :production, :staging do#, :ci do
@@ -32,9 +33,9 @@ group :production, :staging do#, :ci do
 end
 
 group :test do
+  gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
-  gem 'capybara'
   gem 'launchy'
   gem 'shoulda'
 end
