@@ -62,7 +62,7 @@ describe 'Tool' do
       it 'should list new tool on the newsfeed' do
         visit newsfeed_path
 
-        page.should have_content "created tool Test Tool"
+        page.should have_content "added tool Test Tool"
       end
     end
   end
@@ -143,7 +143,9 @@ describe 'Tool' do
     it 'should show the changes on the newsfeed' do
       visit newsfeed_path
 
-      page.should have_content "updated tool Test Changed Tool"
+      # garh, there's newlines in here
+      page.should have_content "updated tool"
+      page.should have_content "Test Changed Tool"
     end
 
   end

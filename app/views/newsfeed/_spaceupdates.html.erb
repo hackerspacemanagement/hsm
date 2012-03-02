@@ -8,15 +8,13 @@
       <% else %>
         The space
       <% end %>
-       
-      <%= action.event %>&nbsp;<%= action.obj_type.downcase %>
+
+      <%= action.event %>&nbsp;<%= action.obj_type.humanize.downcase %>
       <% if action.object %>
         <%= link_to action.object.name, :action => 'show', :controller => action.obj_type.tableize, :id => action.obj_id%>
       <% end %>
-      <% if action.type == 'updated User' %>
-        's profile.
-      <% elsif action.type == 'added Tool' %>
-        &nbsp;to the database.
+      <% if action.type == 'updated User' %>'s profile.
+      <% elsif action.type == 'added Tool' %>&nbsp;to the database.
       <% end %>
     </div>
   <% end %>

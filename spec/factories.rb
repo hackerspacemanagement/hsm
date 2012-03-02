@@ -27,4 +27,10 @@ FactoryGirl.define do
   factory :user_action do
   end
 
+  factory :badge do
+  end
+
+  factory :interest do
+  end
+
 end

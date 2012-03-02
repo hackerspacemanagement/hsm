@@ -1,0 +1,22 @@
+<div class='hero-unit'>
+  <%= image_tag 'logo.png', class: "pull-right" %>
+  <% if @user_interests %>
+    <h1><%= @user.full_name %>'s Interests</h1>
+  <% else %>
+    <h1>Interests</h1>
+  <% end %>
+
+  <%= link_to "Add an Interest", new_interest_path %>
+
+  <table>
+    <thead>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Interested People</th>
+      <th>Actions</th>
+    </thead>
+    <tbody>
+      
+    </tbody>
+  </table>
+</div>
