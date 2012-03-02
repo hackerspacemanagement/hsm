@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20120215075605) do
 
   create_table "permissions", :force => true do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20120215075605) do
 
   create_table "roles", :force => true do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(:version => 20120215075605) do
 
   create_table "skills", :force => true do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.string   "more_info_url"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(:version => 20120215075605) do
 
   create_table "tool_categories", :force => true do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
