@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120215075605) do
+ActiveRecord::Schema.define(:version => 20120316224116) do
 
   create_table "permissions", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "permissions_roles", :id => false, :force => true do |t|
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(:version => 20120215075605) do
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "settings", :force => true do |t|
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(:version => 20120215075605) do
     t.text     "value"
     t.integer  "thing_id"
     t.string   "thing_type", :limit => 30
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
   add_index "settings", ["thing_type", "thing_id", "var"], :name => "index_settings_on_thing_type_and_thing_id_and_var", :unique => true
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(:version => 20120215075605) do
     t.string   "name"
     t.text     "description"
     t.string   "more_info_url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
     t.string   "role_required_to_grant"
   end
 
@@ -84,8 +84,8 @@ ActiveRecord::Schema.define(:version => 20120215075605) do
     t.string   "obj_type"
     t.string   "obj_id"
     t.string   "event"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "user_roles", :force => true do |t|
@@ -110,8 +110,8 @@ ActiveRecord::Schema.define(:version => 20120215075605) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "skill_summary"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                            :null => false
+    t.datetime "updated_at",                                            :null => false
     t.integer  "role_id"
   end
 
@@ -122,8 +122,8 @@ ActiveRecord::Schema.define(:version => 20120215075605) do
     t.integer  "user_id"
     t.integer  "skill_id"
     t.integer  "proficiency"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "users_skills", ["skill_id"], :name => "index_users_skills_on_skill_id"
