@@ -1,0 +1,12 @@
+<ul class='nav secondary-nav'>
+  <li class='dropdown' data-dropdown='dropdown'>
+        <%= binding.pry %>
+    <%= link_to plugin_menu_item[0], '#', :class => 'dropdown-toggle' %>
+    <ul class='dropdown-menu'>
+      <% if user_signed_in? %>
+        <li><%= link_to "My #{ plugin_menu_item[0] }", send(plugin_menu_item[1], :id=>current_user.id) %></li>
+      <% end %>
+      <li><%= link_to "All #{ plugin_menu_item[0] }", send(plugin_menu_item[1]) %></li>
+    </ul>
+  </li>
+</ul>
